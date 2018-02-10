@@ -17,7 +17,11 @@ class Album(models.Model):
     """
     album_title = models.CharField(max_length=64)
     album_description = models.CharField(max_length=64)
-    album_owner = models.OneToOneField(get_user_model())
+    album_owner = models.OneToOneField(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='album_owner',
+    )
 
 class Photo(models.Model):
     """
