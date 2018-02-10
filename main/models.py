@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class Album(models.Model):
     album_title = models.CharField(max_length=64)
     album_description = models.CharField(max_length=64)
-    owner = models.OneToOneField(get_user_model())
+    album_owner = models.OneToOneField(get_user_model())
 
 class Photo(models.Model):
     photo_time = models.IntegerField()
