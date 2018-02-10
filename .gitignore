@@ -1,3 +1,4 @@
 /static
 *.pyc
-main/migrations
+migrations/
+__pycache__/
