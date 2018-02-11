@@ -1,0 +1,19 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>Sign-Up</title>
+		<script
+		  src="http://code.jquery.com/jquery-3.3.1.min.js"
+		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		  crossorigin="anonymous">
+		</script>
+
+		<script src='{% static "js/login.js" %}'></script>
+	</head>
+	<body>
+		<p>REGISTER</p>
+		<button id='register'>Register</button>
+		<input type='hidden' id='csrf-token' value='{{csrf_token}}'>
+	</body>
+</html>

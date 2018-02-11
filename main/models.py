@@ -40,7 +40,7 @@ class Photo(models.Model):
         related_name='photo_album',
     )
 
-class Tags(models.Model):
+class Tag(models.Model):
     """
     Contains:
         tag_name - String representation of the tag,
