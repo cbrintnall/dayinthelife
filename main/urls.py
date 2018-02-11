@@ -6,5 +6,6 @@ urlpatterns = [
 	path('', view.index),
 	path('home/', view.home),
 	path('api/', include('main.api.urls')),
-	path('upload/', view.upload)
+	path('upload/', view.upload),
+	path('tiles/', view.tiles),
 ]
