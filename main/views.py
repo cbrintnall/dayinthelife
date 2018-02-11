@@ -21,6 +21,13 @@ def profile(request):
 	query_results = UserInfo.objects.get(user=userid)
 	context = {'UserInfo': query_results} 
 	return render(request, 'profile.html', context)
+
+@login_required
+def edit_profile(request):
+	userid = request.user.id 
+	query_results = UserInfo.objects.get(user=userid)
+	context = {'UserInfo': query_results}
+	return render(request, 'edit_profile.html', context)
 	
 def tiles(request):
 	context = {}

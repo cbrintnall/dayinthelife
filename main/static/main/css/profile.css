@@ -18,8 +18,8 @@ button {
     border: none;
     border-radius: 4px;
     margin: auto;
-    margin-top: 0;
     height: 25px;
+    width: 25%;
 }
 
 li {
