@@ -1,3 +1,7 @@
+/* 
+	Grabs POST data to send to /auth/register/
+	endpoint
+*/
 $(document).ready(function() {
 	$('#register-form').submit(function() {
 		$.ajax({
@@ -17,6 +21,7 @@ $(document).ready(function() {
 	});
 });
 
+//Formats the datepicker properly
 $(function() {
 	dateInput = $('#datepicker').pickadate({
 		format: 'dddd, mmmm dd, yyyy',

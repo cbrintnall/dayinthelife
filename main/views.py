@@ -13,6 +13,7 @@ def home(request):
 	context = {} 
 	return render(request, 'home.html', context)
 
+#Upload view.
 @login_required
 def upload(request):
 	context = {}
@@ -32,11 +33,12 @@ def edit_profile(request):
 	query_results = UserInfo.objects.get(user=userid)
 	context = {'UserInfo': query_results}
 	return render(request, 'edit_profile.html', context)
-	
-def tiles(request):
-	context = {}
-	return render(request, 'tiles.html', context)
 
+'''
+	Album view that queries by an ID,
+	returning either a view that displays the album
+	or a 404 error if the album doesn't exist
+'''
 def album(request, album_id):
 	context = {}
 
