@@ -201,7 +201,7 @@ def add_photo(request, album_id):
         return JsonResponse({'failed':'Please specify a path to the file (that is already on the server)'})
 
     parent_album = Album.objects.get(pk=album_id)
-    photo = Photo.objects.create(photo_location=path, photo_album=parent_album)
+    photo = Photo.objects.create(photo_path=path, photo_album=parent_album)
 
     # Open the photo file for processing
     f = open("{}/media{}".format(settings.BASE_DIR, path), 'rb')
@@ -230,7 +230,7 @@ def add_photo(request, album_id):
 
     f.close()
 
-    photo.photo_city = city
+    photo.photo_location = city
     photo.photo_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
 
     photo.save()
