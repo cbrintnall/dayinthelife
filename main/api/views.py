@@ -222,6 +222,11 @@ def add_photo(request, album_id):
     tags = exifread.process_file(f)
 
     time = tags.get('EXIF DateTimeOriginal')
+    if time:
+        date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
+        photo.photo_time = date_time.time()
+        photo.photo_date = date_time.date()
+        
     geolocater = nom()
     
     city = None
@@ -243,9 +248,6 @@ def add_photo(request, album_id):
     f.close()
 
     photo.photo_location = city
-    date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
-    photo.photo_time = date_time.time()
-    photo.photo_date = date_time.date()
 
     photo.save()
 
