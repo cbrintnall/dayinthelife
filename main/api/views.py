@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.db.models import Q
-from .models import Album
-from .models import Photo
+from ..models import Album
+from ..models import Photo
 
 def get_photos(request):
     param_dict = generate_param_dict(request.META['QUERY_STRING'])  # Creates a dict from a query string

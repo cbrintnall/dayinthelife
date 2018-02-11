@@ -22,7 +22,7 @@ class Album(models.Model):
         related_name='album_owner',
     )
     album_title = models.CharField(max_length=64)
-    album_tags = models.CharField(max_length=256)
+    album_tags = models.CharField(max_length=256, blank=True, null=True)
 
 class Photo(models.Model):
     """
@@ -33,8 +33,8 @@ class Photo(models.Model):
         * photo_album - Foreign Key Reference to the Album Model 
             that 'owns' the photo
     """
-    photo_time = models.IntegerField()
-    photo_location = models.CharField(max_length=64)
+    photo_time = models.TimeField(auto_now=True)
+    photo_location = models.ImageField()
     photo_album = models.OneToOneField(
         Album,
         on_delete=models.CASCADE,
