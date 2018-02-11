@@ -37,7 +37,7 @@ class Photo(models.Model):
     """
     photo_time = models.DateTimeField(auto_now=True)
     photo_location = models.CharField(blank=True, max_length=128, null=True)
-    photo_path = models.CharField(blank=True, max_length=256)
+    photo_path = models.CharField(max_length=256)
     photo_album = models.ForeignKey(
         Album,
         on_delete=models.CASCADE,
