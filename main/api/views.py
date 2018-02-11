@@ -96,7 +96,7 @@ def generate_param_dict(query_string):
 
 def add_to_dict(ref_dict, query):
     """
-    Params:
+    Params:git
         ref_dict (Dictionary)  - The original dictionary filled with params. Since
             this is an object and python passes those by refrences, hence the reason
             we don't return this.
@@ -154,6 +154,7 @@ def create_album_json(query_album_set):
                         'photo_date': photo.photo_date,
                         'photo_location': photo.photo_location,
                         'photo_album': photo.photo_album.album_title,
+                        'photo_album_id': photo.photo_album.pk,
                         'photo_path': photo.photo_path,
                     }
                     for photo in album.photo_album.all()
@@ -171,6 +172,7 @@ def create_photo_json(query_photo_set):
                 'photo_time': photo.photo_time,
                 'photo_location': photo.photo_location,
                 'photo_album': photo.photo_album.album_title,
+                'photo_album_id': photo.photo_album.pk,
                 'photo_path': photo.photo_path,
             }
             for photo in list(query_photo_set)
