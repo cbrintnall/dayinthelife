@@ -19,3 +19,13 @@ $(document).ready(function() {
 
 	*/
 });
+
+$(function() {
+	dateInput = $('#datepicker').pickadate({
+		format: 'dddd, mmmm dd, yyyy',
+		formatSubmit: 'yyyy-mm-dd',
+		hiddenSuffix: '',
+		today: '',
+		  selectYears: true,
+	})
+});

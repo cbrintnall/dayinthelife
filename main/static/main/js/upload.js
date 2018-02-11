@@ -47,6 +47,13 @@ function uploadPictures(key) {
 			}
 		})
 	});
+	$.ajax({
+		url: '/api/close_album/' + key + '/',
+		type: 'GET',
+		success: function(data) {
+
+		}
+	})
 }
 
 function setTitleSize() {
