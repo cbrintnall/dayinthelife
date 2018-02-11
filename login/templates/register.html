@@ -27,7 +27,7 @@
 		</div>
 		<div class="register">
 			<h1>Register</h1>
-			<form id='login-form' action='/auth/api/login/' method='POST'>
+			<form id='register-form' action='/auth/api/register/' method='POST'>
 				{%csrf_token%}
 				<input type="text" name="username" placeholder="Username" required="required" />
 				<input type="email" name="email" placeholder="example@example.com" required="required" />
@@ -35,7 +35,7 @@
 				<input type="password" placeholder="Confirm Password" required="required" />
 				<input type="text" name="first" placeholder="First Name" required="required" />
 				<input type="text" name="last" placeholder="Last Name" required="required" />
-				<input id="datepicker" type="text" name="datepicker" placeholder="yyyy/mm/dd" required="required" />
+				<input id="datepicker" type="text" name="dob" placeholder="yyyy/mm/dd" required="required" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Register!</button>
 			</form>
 		</div>
