@@ -101,7 +101,7 @@ function process_photos(data){
     var idx;
     for (i=0; (i < photos.length && i < count); ++i){
         idx = Math.floor(Math.random() * Math.floor(photos.length));
-        $('#' + i).prepend($('<img>',{class:image,id:photos[idx].photo_album_id,src:'media/'+photos[idx].photo_path}));
+        $('#' + i).prepend($('<img>',{class:'image',id:photos[idx].photo_album_id,src:'media/'+photos[idx].photo_path}));
     }
 }
 
