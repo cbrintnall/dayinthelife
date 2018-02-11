@@ -5,7 +5,7 @@ var time_start = (now.getHours() - 1) * 60;
 var time_end = (now.getHours() + 1) * 60;
 if (time_end > 1440) {
     time_start = 0;
-    time_end = 60 * 2
+    time_end = 60
 }
 
 slider.margin = '20 auto 30px';
@@ -30,40 +30,6 @@ noUiSlider.create(slider, {
             decimals: 0
         })
     },
-});
-
-slider.noUiSlider.on('slide', function(){
-    var L = $("div.noUi-handle.noUi-handle-lower").offset();
-    var R = $("div.noUi-handle.noUi-handle-upper").offset();
-    var mid = L.left + ((R.left - L.left) / 2) + 16;
-    $("#line").css({
-        'position' : 'absolute',
-        'left': mid,
-        'top': R.top + 10,
-    });
-});
-
-slider.noUiSlider.on('end', function(){
-    $("#line").css({
-        'display': 'none'});
-});
-
-slider.noUiSlider.on('start', function(){
-    var L = $("div.noUi-handle.noUi-handle-lower").offset();
-    var R = $("div.noUi-handle.noUi-handle-upper").offset();
-    var mid = L.left + ((R.left - L.left) / 2);
-    $("#line").css({
-        'position' : 'absolute',
-        'left': mid,
-        'top': R.top + 10,
-        'display': 'block'
-    });
-});
-
-$('.noUi-value.noUi-value-horizontal.noUi-value-large').each(function() {
-    var val = $(this).html();
-    val = recountVal(parseInt(val));
-    $(this).html(val);
 });
 
 function recountVal(val){
