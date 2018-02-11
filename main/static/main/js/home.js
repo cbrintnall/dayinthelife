@@ -1,5 +1,13 @@
 var slider = document.getElementById('slider');
 
+var now = new Date();
+var time_start = (now.getHours() - 1) * 60;
+var time_end = (now.getHours() + 1) * 60;
+if (time_end > 1440) {
+    time_start = 0;
+    time_end = 60 * 2
+}
+
 slider.margin = '20 auto 30px';
 var slider_range = {
 	'min': [ 0, 15],
@@ -7,7 +15,7 @@ var slider_range = {
 };
 
 noUiSlider.create(slider, {
-    start: [360, 720],
+    start: [time_start, time_end],
     behaviour: 'drag-tap',
     connect: true,
     range: slider_range,
