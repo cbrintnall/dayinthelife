@@ -1,8 +1,13 @@
+preparePage();
+
 var slider = document.getElementById('slider');
 
 var now = new Date();
 var time_start = (now.getHours() - 1) * 60;
 var time_end = (now.getHours() + 1) * 60;
+
+var st;
+var nd;
 
 if (time_start < 0) {
     time_start = 0;
@@ -29,6 +34,14 @@ noUiSlider.create(slider, {
             decimals: 0
         })
     },
+});
+
+slider.noUiSlider.on('change', function(data){
+    st = parseInt(data[0])
+    nd = parseInt(data[1])
+
+    console.log(st)
+    console.log(nd)
 });
 
 function recountVal(val){
