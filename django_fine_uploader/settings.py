@@ -4,7 +4,7 @@ FILE_STORAGE = getattr(
     settings, 'FU_FILE_STORAGE', 'django.core.files.storage.DefaultStorage'
 )
 
-UPLOAD_DIR = getattr(settings, 'FU_UPLOAD_DIR', 'media/')
+UPLOAD_DIR = getattr(settings, 'FU_UPLOAD_DIR', '')
 
 CHUNKS_DIR = getattr(settings, 'FU_CHUNKS_DIR', 'chunks/')
 
