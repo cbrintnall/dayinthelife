@@ -215,12 +215,18 @@ def add_photo(request, album_id):
         return JsonResponse({'failed':'Album is closed'})
         
     path = request.GET.get('path', False)
+    tz = request.GET.get('tz', False)
+    parent_album = Album.objects.get(pk=album_id)
     
+    if not tz:
+        parent_album.delete()
+        return JsonResponse({'failed':'Please specify a timezone'})
+
     if not path:
+        parent_album.delete()
         return JsonResponse({'failed':'Please specify a path to the file (that is already on the server)'})
 
-    parent_album = Album.objects.get(pk=album_id)
-    photo = Photo.objects.create(photo_path=path, photo_album=parent_album)
+    photo = Photo.objects.create(photo_path=path, photo_album=parent_album, photo_timezone=tz)
 
     # Open the photo file for processing
     f = open("{}/media{}".format(settings.BASE_DIR, path), 'rb')
@@ -230,10 +236,12 @@ def add_photo(request, album_id):
 
     time = tags.get('EXIF DateTimeOriginal')
     if time:
+        local = pytz.timezone(photo.photo_timezone)
         date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
+        local_dt = local.localize(date_time, is_dst=None)
+        photo.photo_utc_time = local_dt.astimezone(pytz.utc).time()
         photo.photo_time = date_time.time()
         photo.photo_date = date_time.date()
-        photo.photo_utc_time = date_time.time().astimezone(pytz.utc)
 
     geolocater = nom()
     
@@ -258,6 +266,10 @@ def add_photo(request, album_id):
     photo.photo_location = city
 
     photo.save()
+
+    print(photo.photo_timezone)
+    print(photo.photo_time)
+    print(photo.photo_utc_time)
 
     return JsonResponse({'success':'Added photo {} to album {}'.format(photo.pk, album_id)})
 
