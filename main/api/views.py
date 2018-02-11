@@ -151,6 +151,7 @@ def create_album_json(query_album_set):
                 'photos': [
                     {
                         'photo_time': photo.photo_time,
+                        'photo_utc_time': photo.photo_utc_time,
                         'photo_date': photo.photo_date,
                         'photo_location': photo.photo_location,
                         'photo_album': photo.photo_album.album_title,
@@ -170,6 +171,7 @@ def create_photo_json(query_photo_set):
         'photos': [
             {
                 'photo_time': photo.photo_time,
+                'photo_utc_time': photo.photo_utc_time,
                 'photo_location': photo.photo_location,
                 'photo_album': photo.photo_album.album_title,
                 'photo_album_id': photo.photo_album.pk,
