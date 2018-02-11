@@ -1,8 +1,8 @@
 html {
     background: 
-    -webkit-radial-gradient(0% 100%, ellipse cover,rgba(190, 169, 222, 0.4) 10%,rgba(19, 24, 98, 0) 40%), 
-    -webkit-linear-gradient(top,  rgba(46, 68, 130, 0.25) 0%,rgba(46, 68, 130, 0.4) 100%), 
-    -webkit-linear-gradient(-45deg,  #bea9de 0%,#131862 100%);
+    -webkit-radial-gradient(0% 100%, ellipse cover,rgba(190, 169, 222, 0.4) 10%,rgba(19, 24, 98, 0) 40%) fixed, 
+    -webkit-linear-gradient(top,  rgba(46, 68, 130, 0.25) 0%,rgba(46, 68, 130, 0.4) 100%) fixed, 
+    -webkit-linear-gradient(-45deg,  #bea9de 0%,#131862 100%) fixed;
 }
 
 body {
