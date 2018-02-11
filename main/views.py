@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 from login.models import UserInfo
+from main.models import Album, Photo
 
 def index(request):
 	context = {}
@@ -25,4 +27,16 @@ def profile(request):
 def tiles(request):
 	context = {}
 	return render(request, 'tiles.html', context)
+
+def album(request, album_id):
+	context = {}
+
+	album = Album.objects.filter(pk=album_id)
+
+	if album.exists():
+		context['album'] = Album.objects.get(pk=album_id)
+		return render(request, 'album.html', context)
+
+	raise Http404("Album does not exist")
+
 	

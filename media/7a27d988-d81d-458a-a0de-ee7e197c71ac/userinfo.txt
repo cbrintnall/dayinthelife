@@ -1,6 +1,0 @@
-user=banglaboy
-pass=123456
-email=banglaboy@yahoo.com
-timezone=UTC+06:00
-first=Abir
-last=Uddah

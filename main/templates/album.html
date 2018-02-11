@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+	<head>
+		<title> Album </title>
+		<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'main/css/album.css' %}"/>
+		<script
+	        src="http://code.jquery.com/jquery-3.3.1.min.js"
+	        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	        crossorigin="anonymous">
+    	</script>
+    	<script>
+    		var id = "{{album.pk}}";
+    	</script>
+	</head>
+	<body>
+		<div id='content'>
+			<section id='info'>
+				<span id='title'>With the help of {{album.album_owner.first_name}},<br> we can see through the eyes of {{album.album_title}}</span>
+
+				<br>
+
+				<span id='description'>They're hoping this helps us see: {{album.album_description}}</span>
+			</section>
+			<hr/>
+			<section id='pictures'>
+				<div id='container'>
+					<img id='current_image' src=''>
+				</div>
+			</section>
+			<button id='up'>Right</button>
+			<button id='down'>Left</button>
+		</div>
+		<script src='{% static "main/js/album.js" %}'> </script>
+		<script>
+			loadImages();
+    	</script>
+	</body>
+</html>

@@ -7,4 +7,5 @@ urlpatterns = [
 	path('upload/', view.upload),
 	path('tiles/', view.tiles),
 	path('profile/', view.profile),
+	path('album/<int:album_id>/', view.album)
 ]
