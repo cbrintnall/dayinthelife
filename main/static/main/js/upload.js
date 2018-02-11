@@ -26,10 +26,9 @@ $(document).ready(function() {
 			type: 'GET',
 			success: function(data) {
 				if (data.success) {
-					console.log("Pictures:")
-					default_concurrent_chunked_uploader.getUploads().forEach(function(element){
-						console.log(element);
-					});
+					uploadPictures(data.success)
+				} else {
+
 				}
 			}
 		})
@@ -37,8 +36,17 @@ $(document).ready(function() {
 	});
 })
 
-function uploadPictures() {
+function uploadPictures(key) {
 	default_concurrent_chunked_uploader.uploadStoredFiles();
+	default_concurrent_chunked_uploader.getUploads().forEach(function(element){
+		$.ajax({
+			url: '/api/photo/' + key + '/?path=/' + element.uuid + '/' + element.originalName,
+			type: 'GET',
+			success: function(data) {
+
+			}
+		})
+	});
 }
 
 function setTitleSize() {

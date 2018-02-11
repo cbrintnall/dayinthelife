@@ -85,7 +85,6 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
           <button type="button" class="qq-ok-button-selector">Yes</button>
         </div>
       </dialog>
-
       <dialog class="qq-prompt-dialog-selector">
         <div class="qq-dialog-message-selector"></div>
         <input type="text">
@@ -136,6 +135,10 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
         },
         success: {
           endpoint: "/api/file/upload/?done",
+        }
+      },
+      callbacks: {
+        onComplete: function(data){
         }
       }
     });

@@ -24,6 +24,7 @@ class Album(models.Model):
 
     album_title = models.CharField(max_length=64)
     album_tags = models.CharField(max_length=256, blank=True, null=True)
+    closed = models.BooleanField(default=False)
 
 class Photo(models.Model):
     """
@@ -35,8 +36,8 @@ class Photo(models.Model):
             that 'owns' the photo
     """
     photo_time = models.TimeField(auto_now=True)
-    photo_location = models.ImageField()
-    photo_album = models.OneToOneField(
+    photo_location = models.CharField(blank=True, max_length=256)
+    photo_album = models.ForeignKey(
         Album,
         on_delete=models.CASCADE,
         related_name='photo_album',

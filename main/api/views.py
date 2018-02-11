@@ -139,3 +139,29 @@ def create_album(request):
     new_album.save()
 
     return JsonResponse({'success':'{}'.format(new_album.pk)})
+
+'''
+
+    Should be called when files have completed uploading.
+    
+'''
+def add_photo(request, album_id):
+
+    if not Album.objects.filter(pk=album_id).exists():
+        return JsonResponse({"failed":"Album does not exist"})
+
+    if Album.objects.get(pk=album_id).closed:
+        return JsonResponse({'failed':'Album is closed'})
+        
+    path = request.GET.get('path', False)
+    
+    if not path:
+        return JsonResponse({'failed':'Please specify a path to the file (that is already on the server)'})
+
+    parent_album = Album.objects.get(pk=album_id)
+    photo = Photo.objects.create(photo_location=path, photo_album=parent_album)
+    photo.save()
+
+    print("Added {}".format(photo.photo_location))
+
+    return JsonResponse({'success':'Added photo {} to album {}'.format(photo.pk, album_id)})
