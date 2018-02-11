@@ -59,10 +59,11 @@ window.onclick = function(event) {
 
 $('#logout-form').submit(function() {
     $.ajax({
-        url: this.attr('action'),
-        type: this.attr('method'),
-        data: this.serialize(),
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        data: $(this).serialize(),
         success: function(data) {
+            console.log('success')
             window.location = '/';
             return false;
         }
