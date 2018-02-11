@@ -204,7 +204,11 @@ def create_album(request):
 '''
 
     Should be called when files have completed uploading.
-    
+    This checks for valid albums, and if it's valid and is an
+    open (we can still add to it) album, then we create and photo
+    object and associate it with that album. This photo stores
+    where it is located on the server, the time it was taken locally, and 
+    in UTC. This is for the moment/time viewpoints.
 '''
 def add_photo(request, album_id):
 
@@ -235,6 +239,8 @@ def add_photo(request, album_id):
     tags = exifread.process_file(f)
 
     time = tags.get('EXIF DateTimeOriginal')
+
+    # Tries to store the datetime as a local timezone, and then seperately as UTC
     if time:
         local = pytz.timezone(photo.photo_timezone)
         date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
@@ -247,6 +253,7 @@ def add_photo(request, album_id):
     
     city = None
 
+    # Set location of picture.
     if any('GPS GPSLongitude' in tag for tag in tags):
         longlist = list(tags.get('GPS GPSLongitude').values)
         longitude = longlist[0].num + (longlist[1].num/60) + longlist[2].num/longlist[2].den/3600
@@ -267,12 +274,9 @@ def add_photo(request, album_id):
 
     photo.save()
 
-    print(photo.photo_timezone)
-    print(photo.photo_time)
-    print(photo.photo_utc_time)
-
     return JsonResponse({'success':'Added photo {} to album {}'.format(photo.pk, album_id)})
 
+#Unused endpoint to 'close' an album.
 def close_album(request, album_id):
 
     if Album.objects.filter(pk=album_id).exists():

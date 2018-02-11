@@ -7,6 +7,12 @@ from ..models import UserInfo
 
 import django
 
+'''
+	Checks if the user sent valid requests,
+	then attempts to authenticate the info,
+	if succeeds, it logs the user in. Otherwise
+	it returns an error indicating the issue
+'''
 def login(request):
 	name = request.POST.get('username', False)
 	password = request.POST.get('password', False)
@@ -23,11 +29,19 @@ def login(request):
 		return JsonResponse({'failed':"User doesn't exist or credentials are wrong"})
 
 	return JsonResponse({'failed':'There was a server error logging in'})
-
+'''
+	Simply uses the request to logout
+'''
 def logout(request):
 	django.contrib.auth.logout(request)
 	return JsonResponse({'success':'Logged out'})
 
+'''
+	Grabs and verifies post data,
+	then checks to see if the user already exists,
+	if not it creates a new user object
+	and logs them in
+'''
 def register(request):
 	username = request.POST.get('username', False)
 	password = request.POST.get('password', False)

@@ -1,3 +1,7 @@
+/*
+	Simple ajax request that logs the user in with
+	some form data, supplied in login.html
+*/
 $(document).ready(function() {
 	$('#login-form').submit(function() {
 		$.ajax({
@@ -16,6 +20,7 @@ $(document).ready(function() {
 	})
 })
 
+//Sets the errors for the user page.
 function setErrors(error) {
 	$('#error span').text(error)
 }
