@@ -13,6 +13,23 @@ h1 {
     padding-bottom: 20px;
 }
 
+/* #d48122 0%,#e02323 */
+button {
+    background-color: #d42405;
+    border: none;
+    color: white;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+
+button:hover {
+    border:none;
+    background-color: white;
+    color: #333333;
+    text-decoration: none;
+    transition: background-position 0.1s linear;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -22,26 +39,23 @@ h1 {
 
 #redirects {
     list-style: none;   
+    position: absolute;
+    bottom: 0;
+    width: 20%;
 }
 
 #redirects li form {
     margin: 0 0 0 0;
+    width: 100%;
 }
 
 #redirects button {
     margin: 0 0 3px 0;
-    width: 10%;
+    width: 100%;
 }
 
 #slider {
     margin: 0 auto;
-}
-
-#line {
-    width: 3px;
-    border-left: 2px solid green;
-    height: 85%;
-    display: none;
 }
 
 #lifestyle-div {
@@ -63,5 +77,6 @@ div.noUi-active div.noUi-tooltip {
 
 div.noUi-value.noUi-value-horizontal.noUi-value-large {
     padding-top: 5px;
+    color:white;
 }
 
