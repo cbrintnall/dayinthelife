@@ -5,7 +5,6 @@ urlpatterns = [
 	path('', view.home),
 	path('api/', include('main.api.urls')),
 	path('upload/', view.upload),
-	path('tiles/', view.tiles),
 	path('profile/', view.profile),
 	path('profile/edit/', view.edit_profile),
 	path('album/<int:album_id>/', view.album),
