@@ -43,7 +43,7 @@ slider.noUiSlider.on('end', function(){
 slider.noUiSlider.on('start', function(){
     var L = $("div.noUi-handle.noUi-handle-lower").offset();
     var R = $("div.noUi-handle.noUi-handle-upper").offset();
-    var mid = L.left + ((R.left - L.left) / 2) + 16;
+    var mid = L.left + ((R.left - L.left) / 2);
     $("#line").css({
         'position' : 'absolute',
         'left': mid,

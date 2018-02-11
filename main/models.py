@@ -21,6 +21,7 @@ class Album(models.Model):
         on_delete=models.CASCADE,
         related_name='album_owner',
     )
+
     album_title = models.CharField(max_length=64)
     album_tags = models.CharField(max_length=256, blank=True, null=True)
 

@@ -17,6 +17,7 @@ h1 {
 }
 
 #line {
+    width: 3px;
     border-left: 2px solid green;
     height: 85%;
     position: absolute;

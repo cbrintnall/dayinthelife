@@ -122,3 +122,21 @@ def add_to_dict(ref_dict, query):
     else:
         query_value = query_value.replace("%20", " ")  # Replace url spaces with true spaces
         ref_dict[query_id] = query_value
+
+def create_album(request):
+
+    title = request.GET.get('title', False)
+    description = request.GET.get('description', False)
+    tags = request.GET.get('tags', False)
+
+    if not title or not description or not tags:
+        return JsonResponse({'failed':'Information was missing, try again with more info'})
+
+    new_album = Album.objects.create(album_title=title,
+                                    album_description=description,
+                                    album_tags=tags,
+                                    album_owner=request.user)
+    new_album.save()
+    new_album.delete()
+
+    return JsonResponse({'success':'{}'.format(new_album.pk)})
