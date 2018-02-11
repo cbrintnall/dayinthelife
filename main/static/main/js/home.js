@@ -89,22 +89,6 @@ function preparePage() {
     }
 }
 
-var modal = document.getElementById('album-view');
-var span = document.getElementsByClassName("close")[0];
-$('.gridimg').click(function() {
-    modal.style.display = "block";
-});
-
-span.onclick = function() {
-    modal.style.display = "none";
-};
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
 $('#logout-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'),
