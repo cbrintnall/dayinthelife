@@ -7,3 +7,8 @@ def index(request):
 def home(request):
 	context = {} 
 	return render(request, 'home.html', context)
+
+def upload(request):
+	context = {}
+	return render(request, 'upload.html', context)
+	

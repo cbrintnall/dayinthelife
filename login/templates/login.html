@@ -1,3 +1,5 @@
+{%load static%}
+
 <html>
 <head>
 	<title>Login</title>
@@ -5,11 +7,27 @@
 	  src="http://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous">
-	  	
 	</script>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+	<link href='{% static "css/login.css" %}' rel='stylesheet'>
+	<script src='{% static "js/login.js" %}'></script>
 </head>
 <body>
-<p>LOGIN</p>
-<button>Login</button>
+	<section id='login'>
+		<form id='login-form' action='/auth/api/login/' method='POST'>
+			{%csrf_token%}
+			<p>
+			Username:<br>
+			<input name='username' type='text'>
+			</p>
+
+			<p>
+			Password:<br>
+			<input name='password' type='password'>
+			</p>
+
+			<input type='submit'>
+		</form>
+	</section>
 </body>
 </html>

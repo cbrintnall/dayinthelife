@@ -1,10 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 
-from . import views as view
-from . import api
+import main.views as view
 
 urlpatterns = [
 	path('', view.index),
 	path('home/', view.home),
-	path('api/', api.get_photos)
+	path('api/', include('main.api.urls')),
 ]
