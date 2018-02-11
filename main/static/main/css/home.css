@@ -13,6 +13,13 @@ h1 {
     padding-bottom: 20px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 #redirects {
     list-style: none;   
 }
@@ -27,7 +34,6 @@ h1 {
 }
 
 #slider {
-    text-align: center;
     margin: 0 auto;
 }
 
@@ -36,6 +42,15 @@ h1 {
     border-left: 2px solid green;
     height: 85%;
     display: none;
+}
+
+#lifestyle-div {
+    margin-top: 50px;
+}
+
+#lifestyle-div button {
+    width: 25%;
+    height: 30px;
 }
 
 div.noUi-tooltip {
