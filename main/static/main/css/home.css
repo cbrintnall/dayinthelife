@@ -2,13 +2,26 @@
 body {
     background-color: white;
     font-family: "Times new Roman";
-
 }
 
 #slider {
     text-align: center;
     margin: 0 auto;
 }
+
+/*
+div.noUi-tooltip {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+div.noUi-active div.noUi-tooltip {
+    opacity: 1;
+    height: auto;
+}
+*/
 
 div.noUi-value.noUi-value-horizontal.noUi-value-large {
     padding-top: 5px;
