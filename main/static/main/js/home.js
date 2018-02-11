@@ -39,9 +39,6 @@ noUiSlider.create(slider, {
 slider.noUiSlider.on('change', function(data){
     st = parseInt(data[0])
     nd = parseInt(data[1])
-
-    console.log(st)
-    console.log(nd)
 });
 
 function recountVal(val){
@@ -53,22 +50,6 @@ function recountVal(val){
         case 1440: return '12:00 AM'; break;
     }
 }
-
-var modal = document.getElementById('album-view');
-var span = document.getElementsByClassName("close")[0];
-$('.gridimg').click(function() {
-    modal.style.display = "block";
-});
-
-span.onclick = function() {
-    modal.style.display = "none";
-};
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
 
 $('#logout-form').submit(function() {
     $.ajax({
