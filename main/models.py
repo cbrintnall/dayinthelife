@@ -15,13 +15,14 @@ class Album(models.Model):
         * album_description - Description of the album
         * album_owner - Reference to the User Object who 'owns' this album
     """
-    album_title = models.CharField(max_length=64)
     album_description = models.CharField(max_length=64)
     album_owner = models.OneToOneField(
         get_user_model(),
         on_delete=models.CASCADE,
         related_name='album_owner',
     )
+    album_title = models.CharField(max_length=64)
+    album_tags = models.CharField(max_length=256)
 
 class Photo(models.Model):
     """
@@ -39,13 +40,3 @@ class Photo(models.Model):
         on_delete=models.CASCADE,
         related_name='photo_album',
     )
-
-class Tag(models.Model):
-    """
-    Contains:
-        tag_name - String representation of the tag,
-        tag_albums = Foreign Key Reference to the Album Models that
-            are tagged with this tag
-    """
-    tag_name = models.CharField(max_length=64)
-    tag_albums = models.ManyToManyField(Album)
