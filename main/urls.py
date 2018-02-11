@@ -6,5 +6,6 @@ from . import api
 urlpatterns = [
 	path('', view.index),
 	path('home/', view.home),
-	path('api/', api.get_photos)
+	path('api/', api.get_photos),
+	path('upload/', view.upload),
 ]
