@@ -1,14 +1,28 @@
+html {
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #d48122 0%,#e02323 100%);
+    font-family: 'Roboto', sans-serif;
+}
 
 body {
-    background-color: white;
-    margin: 0;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 h1 {
     text-align: center;
     padding-top: 10px;
+}
+
+#redirects {
+    list-style: none;   
+}
+
+#redirects li form {
+    margin: 0 0 0 0;
+}
+
+#redirects button {
+    margin: 0 0 3px 0;
+    width: 10%;
 }
 
 #slider {
