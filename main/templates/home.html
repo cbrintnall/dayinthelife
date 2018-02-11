@@ -61,7 +61,7 @@
     
                 var i;
                 for (i=0; (i < photos.length && i < count); ++i){
-                    $('#' + i).prepend($('<img>',{id:'theImg',src:photos[i]}))
+                    $('#' + i).prepend($('<img>',{id:i,src:photos[i]}))
                 }
             });    
         </script>
