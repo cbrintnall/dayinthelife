@@ -1,0 +1,12 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    background: 
+    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(96, 22, 139, 0.192) 10%,rgba(119, 0, 0, 0.404) 40%), /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(145, 145, 145, 0.308) 0%,rgba(20, 20, 20, 0.87) 100%), /* top down */
+    -webkit-linear-gradient(-45deg,  #261f85 0%,#970000 100%); /* TopLeft To BottomRight */
+}
+
+
+body {
+    color: white;
+}
