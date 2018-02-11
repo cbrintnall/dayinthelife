@@ -1,14 +1,13 @@
 html {
-    background: 
-    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(216,180,93,.4) 10%,rgba(221,93,50,0) 40%), /* Sun from bottom left*/
-    -webkit-linear-gradient(top,  rgba(221,93,50,.25) 0%,rgba(212,64,37,.4) 100%), /* top down */
-    -webkit-linear-gradient(-45deg,  #d8b45d 0%,#d44025 100%); /* TopLeft To BottomRight */
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(216,180,93,.4) 10%,rgba(221,93,50,0) 40%) fixed,
+    -webkit-linear-gradient(top,  rgba(221,93,50,.25) 0%,rgba(212,64,37,.4) 100%) fixed, /* top down */
+    -webkit-linear-gradient(-45deg,  #d8b45d 0%,#d44025 100%) fixed; /* TopLeft To BottomRight */
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Controls the Header Text */
