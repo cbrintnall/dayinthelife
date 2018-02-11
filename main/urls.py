@@ -6,4 +6,5 @@ urlpatterns = [
 	path('api/', include('main.api.urls')),
 	path('upload/', view.upload),
 	path('tiles/', view.tiles),
+	path('profile/', view.profile),
 ]
