@@ -4,9 +4,23 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-title {
+.title {
+    color:black;
+    text-align: center;
     margin: auto;
-    width: 50%;
-    color: #FF00FF;
+    width: 65%;
     font-family: 'Lato', sans-serif;
+}
+
+.title h1 {
+    font-size: 50px;
+    letter-spacing: 4px;
+}
+
+.login {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    right: 0;
+    top: 0;
+    padding-right: 1.5%;
 }

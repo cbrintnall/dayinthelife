@@ -12,3 +12,7 @@ def upload(request):
 	context = {}
 	return render(request, 'upload.html', context)
 	
+def tiles(request):
+	context = {}
+	return render(request, 'tiles.html', context)
+	
