@@ -1,15 +1,32 @@
 
 html {
     font-family: 'Roboto', sans-serif;
-    background: 
-    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(96, 22, 139, 0.192) 10%,rgba(119, 0, 0, 0.404) 40%) fixed, /* Sun from bottom left*/
-    -webkit-linear-gradient(top,  rgba(145, 145, 145, 0.308) 0%,rgba(20, 20, 20, 0.87) 100%) fixed, /* top down */
-    -webkit-linear-gradient(-45deg,  #261f85 0%,#970000 100%) fixed; /* TopLeft To BottomRight */
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(234,146,99, 0.192) 10%,rgba(238,168,110, 0.404) 40%) fixed, /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(242,197,128, 0.308) 0%,rgba(244,215,122, 0.87) 100%) fixed, /* top down */
+    -webkit-linear-gradient(-45deg,  #f0e472 0%,#ea9263 100%) fixed; /* TopLeft To BottomRight */
 }
-
 
 body {
     color: white;
+}
+
+hr {
+    margin-top: -2%;
+    margin-bottom: 5%;
+}
+
+.title {
+    color:rgb(255, 255, 255);
+    text-align: center;
+    margin: auto;
+    width: 65%;
+    font-family: 'Lato', sans-serif;
+    padding-top: 0.1px;
+}
+
+.title h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
 }
 
 button {
