@@ -7,7 +7,8 @@ from django.conf import settings
 import exifread
 from geopy.geocoders import Nominatim as nom
 import os
-from datetime import time, datetime, pytz
+from datetime import time, datetime
+import pytz
 
 def get_photos(request):
     param_dict = generate_param_dict(request.META['QUERY_STRING'])  # Creates a dict from a query string
