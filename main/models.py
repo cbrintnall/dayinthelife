@@ -36,8 +36,8 @@ class Photo(models.Model):
         * photo_album - Foreign Key Reference to the Album Model 
             that 'owns' the photo
     """
-    photo_date = models.DateField(auto_now=True)
-    photo_time = models.TimeField(auto_now=True)
+    photo_date = models.DateField(auto_now=False, null=True)
+    photo_time = models.TimeField(auto_now=False, null=True)
     photo_timezone = models.CharField(max_length=64, blank=False, default='UTC')
     photo_utc_time = models.TimeField(null=True)
     photo_location = models.CharField(blank=True, max_length=128, null=True)

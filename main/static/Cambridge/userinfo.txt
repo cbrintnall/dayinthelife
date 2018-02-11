@@ -1,6 +1,0 @@
-user=ukfam
-pass=GODSAVETHEQUEEN
-email=royalty@aol.co.uk
-timezone=UTC+00:00
-first=Emily
-last=Taylor

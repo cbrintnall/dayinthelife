@@ -238,9 +238,8 @@ def add_photo(request, album_id):
     # Grab EXIF tags
     tags = exifread.process_file(f)
 
-    time = tags.get('EXIF DateTimeOriginal')
-
     # Tries to store the datetime as a local timezone, and then seperately as UTC
+    time = tags.get('EXIF DateTimeDigitized')
     if time:
         local = pytz.timezone(photo.photo_timezone)
         date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
