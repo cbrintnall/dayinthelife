@@ -34,10 +34,20 @@ noUiSlider.create(slider, {
     },
 });
 
+var delay;
+
 slider.noUiSlider.on('change', function(data){
-    st = parseInt(data[0])
-    nd = parseInt(data[1])
+    if(Date.now() - delay < 20){
+        return;
+    }
+    delay = Date.now();
+    st = parseInt(data[0]/60)+':'+data[0]%60
+    nd = parseInt(data[1]/60)+':'+data[1]%60
+    if(nd=="24:00")
+        nd='23:59'
+    prepareData();
 });
+
 
 function recountVal(val){
     switch(val){
@@ -49,11 +59,14 @@ function recountVal(val){
     }
 }
 
-function preparePage() {
-    
+function prepareFirstPage() {
     st="00:00";
     nd="23:59";
+    prepareData();
+}
 
+function prepareData(){
+    $("div.blankimg").remove();
     $.ajax({
         url: '/api/public/?photo_time_start='+st+'?photo_time_end='+nd,
         type: "GET",
@@ -62,7 +75,6 @@ function preparePage() {
             process_photos(data);
         }
     });
-    
 }
 
 function process_photos(data){
@@ -86,8 +98,10 @@ function process_photos(data){
     }
 
     var i;
+    var idx;
     for (i=0; (i < photos.length && i < count); ++i){
-        $('#' + i).prepend($('<img>',{id:photos[i].photo_album_id,src:'media/'+photos[i].photo_path}));
+        idx = Math.floor(Math.random() * Math.floor(photos.length));
+        $('#' + i).prepend($('<img>',{id:photos[idx].photo_album_id,src:'media/'+photos[idx].photo_path}));
     }
 }
 
