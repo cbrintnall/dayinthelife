@@ -36,8 +36,8 @@ class Photo(models.Model):
             that 'owns' the photo
     """
     photo_time = models.DateTimeField(auto_now=True)
-    photo_city = models.CharField(blank=True, max_length=85, null=True)
-    photo_location = models.CharField(blank=True, max_length=256)
+    photo_location = models.CharField(blank=True, max_length=128, null=True)
+    photo_path = models.CharField(blank=True, max_length=256)
     photo_album = models.ForeignKey(
         Album,
         on_delete=models.CASCADE,

@@ -12,7 +12,7 @@ from datetime import datetime
 def get_photos(request):
     param_dict = generate_param_dict(request.META['QUERY_STRING'])  # Creates a dict from a query string
     
-    query_album_set = Album.objects.all()  # Create an initial query object
+    query_album_set = Album.objects  # Create an initial query object
 
     # Filter albums upon its id, description, and title if given
     if param_dict['album_id']:
@@ -40,7 +40,7 @@ def get_photos(request):
         query_album_set.filter(q_tag_object)
 
     # Filter photo requests upon its id, location, and time.
-    query_photo_set = Photo.objects.all()
+    query_photo_set = Photo.objects
     if param_dict['photo_id']:
         query_photo_set = query_photo_set.filter(id=param_dict['photo_id'])
     if param_dict['photo_location']:
@@ -50,33 +50,16 @@ def get_photos(request):
     if param_dict['photo_time_end']:
         query_photo_set = query_photo_set.filter(photo_time__lte=param_dict['photo_time_end'])
     
-    json_response = [{
-        'albums': [
-            {
-                'album_description': album.album_description,
-                'album_owner': album.album_owner.username,
-                'album_title': album.album_title,
-                'album_tags': album.album_tags,
-                'photos': [
-                    {
-                        'photo_time': photo.photo_time,
-                        'photo_location': photo.photo_location,
-                        'photo_album': photo.photo_album.album_title,
-                    }
-                    for photo in album.photo_album
-                ]
-            }
-            for album in query_album_set
-        ],
-        'photos': [
-            {
-                'photo_time': photo.photo_time,
-                'photo_location': photo.photo_location,
-                'photo_album': photo.photo_album.album_title,
-            }
-            for photo in query_photo_set
-        ]
-    }]
+    return_album_json = dict_has_album_params(param_dict)
+    return_photo_json = dict_has_picture_params(param_dict)
+
+    json_response = None
+    if return_album_json:
+        json_response = create_album_json(query_album_set)
+    elif return_photo_json:
+        json_response = create_photo_json(query_photo_set)
+    else:
+        json_response = []
 
     return JsonResponse(json_response, safe=False)
 
@@ -128,6 +111,60 @@ def add_to_dict(ref_dict, query):
         query_value = query_value.replace("%20", " ")  # Replace url spaces with true spaces
         ref_dict[query_id] = query_value
 
+
+def dict_has_album_params(ref_dict):
+    return (
+        ref_dict['album_title'] or
+        ref_dict['album_id'] or
+        ref_dict['album_desc'] or
+        ref_dict['album_tag'] or
+        ref_dict['user']
+    )
+
+
+def dict_has_picture_params(ref_dict):
+    return (
+        ref_dict['photo_id'] or
+        ref_dict['photo_location'] or
+        ref_dict['photo_time_start'] or
+        ref_dict['photo_time_end']
+    )
+
+
+def create_album_json(query_album_set):
+    return [{
+        'albums': [
+            {
+                'album_description': album.album_description,
+                'album_owner': album.album_owner.username,
+                'album_title': album.album_title,
+                'album_tags': album.album_tags,
+                'photos': [
+                    {
+                        'photo_time': photo.photo_time,
+                        'photo_location': photo.photo_location,
+                        'photo_album': photo.photo_album.album_title,
+                    }
+                    for photo in album.photo_album.all()
+                ]
+            }
+            for album in query_album_set
+        ]
+    }]
+
+
+def create_photo_json(query_photo_set):
+    return [{
+        'photos': [
+            {
+                'photo_time': photo.photo_time,
+                'photo_location': photo.photo_location,
+                'photo_album': photo.photo_album.album_title,
+            }
+            for photo in list(query_photo_set)
+        ]
+    }]
+
 def create_album(request):
 
     title = request.GET.get('title', False)
@@ -164,7 +201,7 @@ def add_photo(request, album_id):
         return JsonResponse({'failed':'Please specify a path to the file (that is already on the server)'})
 
     parent_album = Album.objects.get(pk=album_id)
-    photo = Photo.objects.create(photo_location=path, photo_album=parent_album)
+    photo = Photo.objects.create(photo_path=path, photo_album=parent_album)
 
     # Open the photo file for processing
     f = open("{}/media{}".format(settings.BASE_DIR, path), 'rb')
@@ -193,7 +230,7 @@ def add_photo(request, album_id):
 
     f.close()
 
-    photo.photo_city = city
+    photo.photo_location = city
     photo.photo_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
 
     photo.save()
