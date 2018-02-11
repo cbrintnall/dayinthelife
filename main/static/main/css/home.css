@@ -2,9 +2,9 @@
 html {
     font-family: 'Roboto', sans-serif;
     background: 
-    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(216,180,93,.4) 10%,rgba(221,93,50,0) 40%), /* Sun from bottom left*/
-    -webkit-linear-gradient(top,  rgba(221,93,50,.25) 0%,rgba(212,64,37,.4) 100%), /* top down */
-    -webkit-linear-gradient(-45deg,  #d8b45d 0%,#d44025 100%); /* TopLeft To BottomRight */
+    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(96, 22, 139, 0.192) 10%,rgba(119, 0, 0, 0.404) 40%), /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(145, 145, 145, 0.308) 0%,rgba(20, 20, 20, 0.87) 100%), /* top down */
+    -webkit-linear-gradient(-45deg,  #261f85 0%,#970000 100%); /* TopLeft To BottomRight */
 }
 
 
@@ -13,7 +13,7 @@ body {
 }
 
 button {
-    background-color: #d42405;
+    background-color: #2c2535;
     border: none;
     color: white;
     transition-duration: 0.4s;
@@ -31,9 +31,10 @@ form {
 button:hover {
     border:none;
     background-color: white;
-    color: #333333;
+    color: #400547;
     text-decoration: none;
     transition: background-position 0.1s linear;
+    font-weight: bold;
 }
 
 #outter {
@@ -41,7 +42,7 @@ button:hover {
     justify-content: center;
     width: 100%;
     text-align: center;
-    margin-top: 0px;
+    margin-top: 15px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -63,7 +64,6 @@ button:hover {
 }
 
 #slider {
-    margin-top: 35px;
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
