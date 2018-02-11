@@ -14,7 +14,7 @@ body {
 
 .title h1 {
     font-size: 50px;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 }
 
 .login {
@@ -22,5 +22,6 @@ body {
     font-family: 'Roboto', sans-serif;
     right: 0;
     top: 0;
-    padding-right: 1.5%;
+    padding-right: 10px;
+    padding-top: 10px;
 }
