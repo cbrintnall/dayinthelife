@@ -54,18 +54,23 @@ function preparePage() {
     st="00:00";
     nd="23:59";
 
-    var square_count = 0;
-    var random_boolean;
-    var count = 0;
-
     $.ajax({
         url: '/api/public/?photo_time_start='+st+'?photo_time_end='+nd,
         type: "GET",
         success: function(data) {
             console.log(data);
+            process_photos(data);
         }
     });
+    
+}
 
+function process_photos(data){
+
+    var photos = data.photos;
+    var square_count = 0;
+    var random_boolean;
+    var count = 0;
 
     while(square_count < 15){
         random_boolean = Math.random() >= 0.66;
@@ -80,12 +85,9 @@ function preparePage() {
         count = count + 1;
     }
 
-    var photos = JSON.parse(data);
-    console.log(photos);
-
     var i;
     for (i=0; (i < photos.length && i < count); ++i){
-        $('#' + i).prepend($('<img>',{id:i,src:photos[i]}))
+        $('#' + i).prepend($('<img>',{id:photos[i].photo_album_id,src:'media/'+photos[i].photo_path}));
     }
 }
 
