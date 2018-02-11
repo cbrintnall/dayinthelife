@@ -8,12 +8,51 @@
 		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		  crossorigin="anonymous">
 		</script>
+		<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+		<link href='{% static "css/register.css" %}' rel='stylesheet'>
 
-		<script src='{% static "js/login.js" %}'></script>
+		<script src='{% static "js/register.js" %}'></script>
 	</head>
 	<body>
-		<p>REGISTER</p>
-		<button id='register'>Register</button>
-		<input type='hidden' id='csrf-token' value='{{csrf_token}}'>
+		<section id='login'>
+			<form id='register' action='/auth/api/register/' method='POST'>
+			{%csrf_token%}
+
+			<p>Username: <br>
+			<input type='text' name='username'>
+			</p>
+
+			<p>
+			Password:<br>
+			<input type='password' name='password'>
+			</p>
+
+			<p>
+			Confirm Password: <br>
+			<input type='password'>
+			</p>
+
+			<p>First Name: <br>
+			<input type='text' name='first'>
+			</p>
+
+			<p>Last Name: <br>
+			<input type='text' name='last'>
+			</p>
+
+			<p>Email: <br>
+			<input type='email' name='email'>
+			</p>
+
+			<p>Date of Birth: <br>
+			<input type='date' name='dob'>
+			</p>
+
+			<p>
+			<input type='submit'>
+			</p>
+
+			</form>
+		</section>
 	</body>
 </html>
