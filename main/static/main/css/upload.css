@@ -45,6 +45,10 @@ body {
     font-size: 32px;
 }
 
+#description-form{
+    margin-top:20px;
+}
+
 #upload-area {
     position: absolute;
     height: 100%;
