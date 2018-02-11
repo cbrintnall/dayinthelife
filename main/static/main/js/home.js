@@ -1,5 +1,3 @@
-preparePage();
-
 var slider = document.getElementById('slider');
 
 var now = new Date();
@@ -39,9 +37,6 @@ noUiSlider.create(slider, {
 slider.noUiSlider.on('change', function(data){
     st = parseInt(data[0])
     nd = parseInt(data[1])
-
-    console.log(st)
-    console.log(nd)
 });
 
 function recountVal(val){
@@ -54,21 +49,45 @@ function recountVal(val){
     }
 }
 
-var modal = document.getElementById('album-view');
-var span = document.getElementsByClassName("close")[0];
-$('.gridimg').click(function() {
-    modal.style.display = "block";
-});
+function preparePage() {
+    
+    st="00:00";
+    nd="23:59";
 
-span.onclick = function() {
-    modal.style.display = "none";
-};
+    var square_count = 0;
+    var random_boolean;
+    var count = 0;
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    $.ajax({
+        url: '/api/public/?photo_time_start='+st+'?photo_time_end='+nd,
+        type: "GET",
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+
+    while(square_count < 15){
+        random_boolean = Math.random() >= 0.66;
+        if(random_boolean && square_count % 5 < 4){
+            $('.grid').append($('<div>',{class:'blankimg wide',id:count}));
+            square_count = square_count + 2;
+        }
+        else{
+            $('.grid').append($('<div>',{class:'blankimg',id:count}));
+            square_count = square_count + 1;
+        }
+        count = count + 1;
     }
-};
+
+    var photos = JSON.parse(data);
+    console.log(photos);
+
+    var i;
+    for (i=0; (i < photos.length && i < count); ++i){
+        $('#' + i).prepend($('<img>',{id:i,src:photos[i]}))
+    }
+}
 
 $('#logout-form').submit(function() {
     $.ajax({

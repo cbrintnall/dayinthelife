@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	setTitleSize();
+	//setTitleSize();
 
 	$(window).resize(setTitleSize);
 
@@ -67,12 +67,8 @@ function setTitleSize() {
 	var title_txt = $('#title span span').width()
 	var input_width = (Math.floor(title_width_comp) - Math.floor(title_txt)).toString();
 
-	$('#title-form').css({
+	$('.txt').css({
 		'width': input_width + 'px'
-	})
-
-	$('#underline').css({
-		'left': title_txt + 'px'
 	})
 }
 

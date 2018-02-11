@@ -102,16 +102,14 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
 
 <div id='upload-area'>
   <section id='title'>
-    <span><span>through the eyes of </span><input id='title-form' type='text' placeholder='a taxi driver...' autofocus><span id='underline'></span></span>
+    <span><span>through the eyes of </span><input class='txt' id='title-form' type='text' placeholder='a taxi driver...' autofocus></span>
+    <span style='font-size: 40px;'><span>everyone can see that: </span><input style='font-size: 40px;' class='txt' id='description-form' type='text' placeholder='they deserve more pay'></span>
     <hr>
   </section>
 
   <div id="default-concurrent-chunked-uploader"></div>
 
   <section id='description'>
-    <span>the world can see..</span><br>
-    <textarea id='description-form' cols='20' rows='5' placeholder="description"></textarea>
-    <br><br>
     <span>tags</span><br>
     <input type='text' id='tags-form'>
     <button  id='upload-button'>Submit</button>

@@ -11,16 +11,17 @@ body {
     width: 100%;
     font-family: 'Lato', sans-serif;
     margin: 12px;
+
+    text-align: center;
 }
 
 #title span {
     overflow: hidden;
-    left: 0;
     font-size: 50px;
     letter-spacing: 5px;
 }
 
-#title-form {
+.txt {
     outline: 0;
     padding-bottom: 3px;
     width: 100%;
@@ -29,24 +30,6 @@ body {
     letter-spacing: 4px;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
-}
-
-#underline {
-    position: absolute;
-    float: bottom;
-    height: 5px;
-    background-color: black;
-}
-
-#description {
-    letter-spacing: 5px;
-    margin: 12px;
-    font-family: 'Lato', sans-serif;
-    font-size: 32px;
-}
-
-#description-form{
-    margin-top:20px;
 }
 
 #upload-area {
