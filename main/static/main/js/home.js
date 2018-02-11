@@ -4,14 +4,11 @@ var now = new Date();
 var time_start = (now.getHours() - 1) * 60;
 var time_end = (now.getHours() + 1) * 60;
 
-console.log(time_start);
-console.log(time_end);
 if (time_start < 0) {
     time_start = 0;
     time_end = 60 * 2;
 }
 
-slider.margin = '20 auto 30px';
 var slider_range = {
 	'min': [ 0, 15],
 	'max': [1440]
@@ -23,12 +20,11 @@ noUiSlider.create(slider, {
     connect: true,
     range: slider_range,
     tooltips: [wNumb({}), wNumb({})],
-    steps: 24,
     pips: {
         mode: 'positions',
         values: [0, 25, 50, 75, 100],
         density: 4,
-        stepped: true,
+        stepped: false,
         format: wNumb({
             decimals: 0
         })

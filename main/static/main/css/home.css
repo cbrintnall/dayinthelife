@@ -30,6 +30,10 @@ button:hover {
     transition: background-position 0.1s linear;
 }
 
+#title {
+    margin: auto;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -54,17 +58,18 @@ button:hover {
     width: 100%;
 }
 
-#slider {
-    margin: 0 auto;
-}
-
 #lifestyle-div {
-    margin-top: 50px;
+    margin: auto;
+    height: 20px;
 }
 
 #lifestyle-div button {
-    width: 25%;
-    height: 30px;
+    margin: auto;
+    height: 20px;
+}
+
+#slider {
+    margin: auto;
 }
 
 div.noUi-tooltip {
