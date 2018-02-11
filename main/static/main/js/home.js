@@ -34,6 +34,17 @@ noUiSlider.create(slider, {
     },
 });
 
+function togglemode() {
+    var elem = document.getElementById("toggle");
+    if (elem.value=="View by Time") {
+        $("#toggle span").text('View by Moment');
+        elem.value = "View by Moment";
+    } else {
+        $("#toggle span").text('View by Time');
+        elem.value = "View by Time";
+    }
+}
+
 var delay;
 
 slider.noUiSlider.on('change', function(data){
@@ -57,6 +68,14 @@ $(document).on('mouseover', '.image', function() {
             $(".title").html("<h1>through the eyes of " + data.albums[0].album_title + " </h1>");
         }
     });
+});
+
+$("#moment").click(function() {
+    $("#moment").html("<button id=\"time\">Switch to Time</button>");
+});
+
+$("#time").click(function() {
+    $("#time").html("<button id=\"moment\">Switch to Moment</button>");
 });
 
 
