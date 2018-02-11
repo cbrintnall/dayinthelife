@@ -1,5 +1,8 @@
 html {
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #d48122 0%,#e02323 100%);
+    background: 
+    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(216,180,93,.4) 10%,rgba(221,93,50,0) 40%), /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(221,93,50,.25) 0%,rgba(212,64,37,.4) 100%), /* top down */
+    -webkit-linear-gradient(-45deg,  #d8b45d 0%,#d44025 100%); /* TopLeft To BottomRight */
 }
 
 body {
@@ -8,12 +11,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-body {
-	width: 100%;
-	height:100%;
-	font-family: 'Open Sans', sans-serif;
-}
-
+/* Controls the Header Text */
 .title {
     color:rgb(255, 255, 255);
     text-align: center;
@@ -28,7 +26,6 @@ body {
     letter-spacing: 5px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .btn {
     display: inline-block;
     *display: inline;
@@ -143,7 +140,7 @@ body {
 input {
 	width: 100%;
 	margin-bottom: 10px;
-	background: rgba(0,0,0,0.3); /* box background*/
+	background: rgba(241, 241, 241, 0.705); /* box background*/
 	border: none;
 	outline: none;
 	padding: 10px;
