@@ -9,26 +9,32 @@ body { font-family: sans-serif; }
 
 .grid {
   background: rgb(100, 100, 100);
- 
   margin-top: 50;
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
-  height: 75%; /* inherit height from body */
-  width: 95%;
+  height: 60%; /* inherit height from body */
+  width: 70%;
 }
 
-.gridimg {
+.blankimg {
     border: black;
     float: left;
     width: 19%;
     height: 30%;
     margin-top: 1%;
-    margin-left: 1%;
-    object-fit: cover;
-    object-position: 100% 100%;
+    margin-left: 0.9%;
+    background-color: gray;
+    overflow: hidden;
 }
 
 .wide {
     width: 38%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 100%;
 }

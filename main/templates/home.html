@@ -6,7 +6,10 @@
     <link rel = "stylesheet" type = "text/css" href = "/../static/main/css/home.css"/>
     <link rel = "stylesheet" type = "text/css" href = "/../static/main/css/nouislider.css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
-
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
     <!-- Image display files -->
     <link href="{% static "main/css/tiles.css" %}" rel="stylesheet">
     <script src="{% static "js/isotope.pkgd.js" %}"></script>
@@ -18,17 +21,52 @@
         <h2 id="lifestyle">through the eyes of [name_here]</h2>
         <div id="slider" style="width: 90%"></div>
         
+        <script>
+            var photos = ["{% static 'Cambridge/beach.jpg' %}",
+            "{% static 'Cambridge/kitchen.jpg' %}",
+            "{% static 'Cambridge/dinner.jpg' %}",
+            "{% static 'Cambridge/family.jpg' %}",
+            "{% static 'Cambridge/girlbus.jpg' %}",
+            "{% static 'Cambridge/fisherman.jpg' %}",
+            "{% static 'Cambridge/recess.jpg' %}",
+            "{% static 'Cambridge/backyard.jpg' %}",
+            "{% static 'Cambridge/game.jpg' %}",
+            "{% static 'Cambridge/grocery.jpg' %}",
+            "{% static 'Cambridge/markety.jpg' %}",
+            "{% static 'Cambridge/shopping.jpg' %}",
+            "{% static 'Cambridge/computer.jpg' %}",
+            "{% static 'Cambridge/classroom.jpg' %}",
+            "{% static 'Cambridge/fishmarket.jpg' %}",
+            "{% static 'Cambridge/guests.jpg' %}",
+            "{% static 'Cambridge/counter.jpg' %}"];
+            
+    
+            $(document).ready(function() {
+                var square_count = 0;
+                var random_boolean;
+                var count = 0;
+    
+                while(square_count < 15){
+                    random_boolean = Math.random() >= 0.66;
+                    if(random_boolean && square_count % 5 < 4){
+                        $('.grid').append($('<div>',{class:'blankimg wide',id:count}));
+                        square_count = square_count + 2;
+                    }
+                    else{
+                        $('.grid').append($('<div>',{class:'blankimg',id:count}));
+                        square_count = square_count + 1;
+                    }
+                    count = count + 1;
+                }
+    
+                var i;
+                for (i=0; (i < photos.length && i < count); ++i){
+                    $('#' + i).prepend($('<img>',{id:'theImg',src:photos[i]}))
+                }
+            });    
+        </script>
+        
         <div class="grid">
-                <img class="gridimg wide" src="{% static "Cambridge/beach.jpg" %}">
-                <img class="gridimg wide" src="{% static "Cambridge/cooking.jpg" %}">
-                <img class="gridimg" src="{% static "Cambridge/classroom.jpg" %}">
-                <img class="gridimg" src="{% static "Cambridge/backyard.jpg" %}">
-                <img class="gridimg wide" src="{% static "Cambridge/counter.jpg" %}">
-                <img class="gridimg" src="{% static "Cambridge/kitchen.jpg" %}">
-                <img class="gridimg" src="{% static "Cambridge/markety.jpg" %}">
-                <img class="gridimg wide" src="{% static "Cambridge/family.jpg" %}">
-                <img class="gridimg" src="{% static "Cambridge/shopping.jpg" %}">
-                <img class="gridimg wide" src="{% static "Cambridge/computer.jpg" %}">
         </div>
 
         {% if user.is_authenticated %}
