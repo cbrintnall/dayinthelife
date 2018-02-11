@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from login.models import UserInfo
 
 def index(request):
 	context = {}
@@ -16,7 +17,9 @@ def upload(request):
 
 @login_required 
 def profile(request):
-	context = {} 
+	userid = request.user.id
+	query_results = UserInfo.objects.get(user=userid)
+	context = {'UserInfo': query_results} 
 	return render(request, 'profile.html', context)
 	
 def tiles(request):
