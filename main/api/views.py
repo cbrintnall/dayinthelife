@@ -194,6 +194,8 @@ def create_album(request):
                                     album_owner=request.user)
     new_album.save()
 
+    print(new_album.pk)
+
     return JsonResponse({'success':'{}'.format(new_album.pk)})
 
 '''
