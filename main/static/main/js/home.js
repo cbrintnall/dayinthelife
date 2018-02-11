@@ -1,5 +1,3 @@
-preparePage();
-
 var slider = document.getElementById('slider');
 
 var now = new Date();
@@ -51,6 +49,46 @@ function recountVal(val){
         case 720: return '12:00 PM'; break;
         case 1080: return '6:00 PM'; break;
         case 1440: return '12:00 AM'; break;
+    }
+}
+
+function preparePage() {
+    
+    st="00:00";
+    nd="23:59";
+
+    var square_count = 0;
+    var random_boolean;
+    var count = 0;
+
+    $.ajax({
+        url: '/api/public/?photo_time_start='+st+'?photo_time_end='+nd,
+        type: "GET",
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+
+    while(square_count < 15){
+        random_boolean = Math.random() >= 0.66;
+        if(random_boolean && square_count % 5 < 4){
+            $('.grid').append($('<div>',{class:'blankimg wide',id:count}));
+            square_count = square_count + 2;
+        }
+        else{
+            $('.grid').append($('<div>',{class:'blankimg',id:count}));
+            square_count = square_count + 1;
+        }
+        count = count + 1;
+    }
+
+    var photos = JSON.parse(data);
+    console.log(photos);
+
+    var i;
+    for (i=0; (i < photos.length && i < count); ++i){
+        $('#' + i).prepend($('<img>',{id:i,src:photos[i]}))
     }
 }
 
