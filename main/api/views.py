@@ -137,6 +137,5 @@ def create_album(request):
                                     album_tags=tags,
                                     album_owner=request.user)
     new_album.save()
-    new_album.delete()
 
     return JsonResponse({'success':'{}'.format(new_album.pk)})

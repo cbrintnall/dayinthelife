@@ -26,7 +26,10 @@ $(document).ready(function() {
 			type: 'GET',
 			success: function(data) {
 				if (data.success) {
-					console.log(data.success)
+					console.log("Pictures:")
+					default_concurrent_chunked_uploader.getUploads().forEach(function(element){
+						console.log(element);
+					});
 				}
 			}
 		})

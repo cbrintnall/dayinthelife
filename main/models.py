@@ -16,7 +16,7 @@ class Album(models.Model):
         * album_owner - Reference to the User Object who 'owns' this album
     """
     album_description = models.CharField(max_length=64)
-    album_owner = models.OneToOneField(
+    album_owner = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
         related_name='album_owner',
