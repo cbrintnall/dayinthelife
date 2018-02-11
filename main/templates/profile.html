@@ -4,9 +4,15 @@
     <link rel = "stylesheet" type = "text/css" href = "/../static/main/css/profile.css"/>
 </head>
 <body>
-    {{ UserInfo.user }}
-    {{ UserInfo.date_of_birth }}
-    {{ UserInfo.timezone }}
+    <ul style='list-style: none'>
+        <li>Username:      <button>{{ UserInfo.user }}</button> </li>
+        <li>Email:         <button>{{ request.user.email }}</button></li>
+        <li>Time Zone:     <button>{{ UserInfo.timezone }}</button></li>
+        <li>Real Name:     {{request.user.first_name}} {{request.user.last_name}} </li>
+        <li>Date of Birth: {{ UserInfo.date_of_birth }} </li>
+        <li>Joined         {{ request.user.date_joined }} </li>
+        <li>Last Login     {{ request.user.last_login }} </li>
+    </ul>
 </body>
 </html>
 
