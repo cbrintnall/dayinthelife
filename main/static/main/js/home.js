@@ -43,7 +43,7 @@ slider.noUiSlider.on('change', function(data){
     delay = Date.now();
     st = parseInt(data[0]/60)+':'+data[0]%60
     nd = parseInt(data[1]/60)+':'+data[1]%60
-    if(nd=="24:00")
+    if(nd=="24:0")
         nd='23:59'
     prepareData();
 });
