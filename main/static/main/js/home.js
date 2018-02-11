@@ -126,10 +126,20 @@ function process_photos(data) {
     }
 
     var i;
-    var idx;
+    shuffle(photos);
     for (i = 0; (i < photos.length && i < count); ++i) {
-        idx = Math.floor(Math.random() * Math.floor(photos.length));
-        $('#' + i).prepend($('<img>', { class: 'image', id: photos[idx].photo_album_id, src: 'media/' + photos[idx].photo_path }));
+        $('#' + i).prepend($('<img>', { class: 'image', id: photos[i].photo_album_id, src: 'media/' + photos[i].photo_path }));
+    }
+}
+
+// Function to shuffle an array
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
     }
 }
 
