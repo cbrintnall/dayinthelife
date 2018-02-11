@@ -1,9 +1,9 @@
 
 html {
     font-family: 'Roboto', sans-serif;
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(234,146,99, 0.192) 10%,rgba(238,168,110, 0.404) 40%) fixed, /* Sun from bottom left*/
-    -webkit-linear-gradient(top,  rgba(242,197,128, 0.308) 0%,rgba(244,215,122, 0.87) 100%) fixed, /* top down */
-    -webkit-linear-gradient(-45deg,  #f0e472 0%,#ea9263 100%) fixed; /* TopLeft To BottomRight */
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(85,80,141, 0.192) 10%,rgba(114,109,168, 0.404) 40%) fixed, /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(125,140,196, 0.308) 0%,rgba(160,210,219, 0.87) 100%) fixed, /* top down */
+    -webkit-linear-gradient(-45deg,  #7d8cc4 0%,#bee7e8 100%) fixed; /* TopLeft To BottomRight */
 }
 
 body {
@@ -22,6 +22,7 @@ hr {
     width: 65%;
     font-family: 'Lato', sans-serif;
     padding-top: 0.1px;
+    text-shadow: 2px 5px #000000;
 }
 
 .title h1 {
@@ -35,8 +36,13 @@ button {
     color: white;
     transition-duration: 0.4s;
     border-radius: 4px;
-    width: 100%;
     margin: auto;
+    width: 110;
+    margin-right: 10px;
+    height: 25px;
+    margin-top: 20px;
+    display:inline-block;
+    overflow: auto;
 }
 
 form {
@@ -55,20 +61,13 @@ button:hover {
 
 #outter {
     display: flex;
-    justify-content: center;
+    float: right;
     width: 100%;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#left {
-    width: 30%;
-    margin: auto;
-    float:left;
-    height: 25px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .container {
@@ -103,6 +102,11 @@ div.noUi-active div.noUi-tooltip {
 div.noUi-value.noUi-value-horizontal.noUi-value-large {
     padding-top: 5px;
     color:white;
+    text-shadow: 1px 1px #000000;
+}
+
+.noUi-marker noUi-marker-horizontal noUi-marker-normal {
+    box-shadow: 5px 5px black;
 }
 
 .modal {

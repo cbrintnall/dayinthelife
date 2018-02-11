@@ -8,23 +8,28 @@ body { font-family: sans-serif; }
 /* ---- grid ---- */
 
 .grid {
-  background: rgb(100, 100, 100);
-  margin-top: 50;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  height: 60%; /* inherit height from body */
-  width: 70%;
+    background: -webkit-radial-gradient(circle, rgb(61, 61, 61), black);
+    margin-top: 75px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%; /* inherit height from body */
+    width: 70%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
 }
 
 .blankimg {
-    border: black;
+    border: #ffffff;
+    border-width: 10px;
+    border-radius: 10px;
     float: left;
     width: 19%;
     height: 30%;
     margin-top: 1%;
     margin-left: 0.9%;
-    background-color: gray;
     overflow: hidden;
 }
 
