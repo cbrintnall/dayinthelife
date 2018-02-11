@@ -40,7 +40,7 @@ def register(request):
 		return JsonResponse({'failed':'Missing information'})
 
 	if get_user_model().objects.filter(username=username).exists():
-		return JsonResponse({'failed':'User already exists.'})
+		return JsonResponse({'failed':'User already exists'})
 
 	user = get_user_model().objects.create_user(username=username,
 											password=password,
@@ -52,4 +52,6 @@ def register(request):
 	user_info.date_of_birth = datetime.strptime(dob, '%Y-%m-%d')
 	user_info.save()
 
-	return JsonResponse({'created':'Account made.'})
+	django.contrib.auth.login(request, user)
+
+	return JsonResponse({'created':'Account made'})

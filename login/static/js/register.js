@@ -1,23 +1,20 @@
 $(document).ready(function() {
-	$('#register').submit(function() {
-		console.log($(this).serialize())
+	$('#register-form').submit(function() {
 		$.ajax({
-			url: $(this).attr('action'),
-			type: $(this).attr('method'),
-			data: $(this).serialize(),
+			url: $('#register-form').attr('action'),
+			type: $('#register-form').attr('method'),
+			data: $('#register-form').serialize(),
 			success: function(data) {
 				if (data.failed){
-					console.log(data.failed)
+					setError(data.failed)
+					return false;
 				} else {
-					console.log('yes')
+					window.location = '/';
 				}
 			}
 		});
 		return false;
 	});
-	/*
-
-	*/
 });
 
 $(function() {
@@ -29,3 +26,7 @@ $(function() {
 		  selectYears: true,
 	})
 });
+
+function setError(error) {
+	$('#errors span').text(error)
+}

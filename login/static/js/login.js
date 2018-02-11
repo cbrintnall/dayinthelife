@@ -7,9 +7,15 @@ $(document).ready(function() {
 			success: function(data) {
 				if (data.success) {
 					window.location = '/'
+				} else {
+					setErrors(data.failed)
 				}
 			}
 		})
 		return false;
 	})
 })
+
+function setErrors(error) {
+	$('#error span').text(error)
+}

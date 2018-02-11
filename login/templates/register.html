@@ -35,9 +35,12 @@
 				<input type="password" placeholder="Confirm Password" required="required" />
 				<input type="text" name="first" placeholder="First Name" required="required" />
 				<input type="text" name="last" placeholder="Last Name" required="required" />
-				<input id="datepicker" type="text" name="dob" placeholder="yyyy/mm/dd" required="required" />
-				<button type="submit" class="btn btn-primary btn-block btn-large">Register!</button>
+				<input id="datepicker" type="text" name="dob" placeholder="yyyy-mm-dd" required="required" />
+				<button id='register-button' type="submit" class="btn btn-primary btn-block btn-large">Register</button>
 			</form>
+			<div id='errors' style='text-align: center;'>
+				<span style='color: white; font-size: 25px;'></span>
+			</div>
 		</div>
 	</body>
 </html>
