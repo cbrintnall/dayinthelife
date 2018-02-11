@@ -27,7 +27,10 @@ hr {
 .title {
     color:rgb(255, 255, 255);
     text-align: center;
-    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 65%;
     font-family: 'Lato', sans-serif;
     padding-top: 0.1px;
@@ -47,13 +50,13 @@ button {
     color: white;
     transition-duration: 0.4s;
     border-radius: 4px;
-    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 110;
     margin-right: 10px;
     height: 25px;
-    margin-top: 20px;
-    display:inline-block;
-    overflow: auto;
 }
 
 form {
@@ -72,12 +75,12 @@ button:hover {
 
 #outter {
     display: flex;
-    float: right;
+    float: left;
     width: 100%;
     text-align: center;
-    margin-top: 25px;
-    margin-bottom: 0px;
-    margin-left: 0;
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 0px;
     margin-right: 0;
 }
 
