@@ -4,6 +4,12 @@ $(document).ready(function() {
 
 	$(window).resize(setTitleSize);
 
+	$('#tags-form').tagEditor({
+		maxLength: 256,
+		forceLowercase: true,
+		clickDelete: true,
+	});
+
 	$('#title-form').keyup(function(data) {
 		var font_size = $(this).css('font-size');
 		font_size = font_size.replace('p','');

@@ -17,6 +17,7 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
     crossorigin="anonymous">
   </script>
   <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+  <link href="{% static 'main/css/jquery.tag-editor.css' %}" rel="stylesheet">
   <script src='{% static "main/js/upload.js" %}'></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader-gallery.min.css" rel="stylesheet">
   <link href="/../static/main/css/upload.css" rel="stylesheet">
@@ -101,7 +102,7 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
 
 <div id='upload-area'>
   <section id='title'>
-    <span><span>through the eyes of </span><input id='title-form' type='text' placeholder='...' autofocus><span id='underline'></span></span>
+    <span><span>through the eyes of </span><input id='title-form' type='text' placeholder='a taxi driver...' autofocus><span id='underline'></span></span>
     <hr>
   </section>
 
@@ -113,9 +114,9 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
     <br><br>
     <span>tags</span><br>
     <input type='text' id='tags-form'>
+    <button  id='upload-button'>Submit</button>
   </section>
-
-  <button  id='upload-button'>Submit</button>
+  <script src='{% static "main/js/jquery.tag-editor.min.js" %}'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader.min.js"></script>
   <!-- Cookies.js, so we can get the CSRFToken cookie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" charset="utf-8"></script>
