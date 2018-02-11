@@ -3,6 +3,11 @@ from django.http import JsonResponse
 from django.db.models import Q
 from ..models import Album
 from ..models import Photo
+from django.conf import settings
+import exifread
+from geopy.geocoders import Nominatim as nom
+import os
+from datetime import datetime
 
 def get_photos(request):
     param_dict = generate_param_dict(request.META['QUERY_STRING'])  # Creates a dict from a query string
@@ -160,6 +165,37 @@ def add_photo(request, album_id):
 
     parent_album = Album.objects.get(pk=album_id)
     photo = Photo.objects.create(photo_location=path, photo_album=parent_album)
+
+    # Open the photo file for processing
+    f = open("{}/media{}".format(settings.BASE_DIR, path), 'rb')
+
+    # Grab EXIF tags
+    tags = exifread.process_file(f)
+
+    time = tags.get('EXIF DateTimeOriginal')
+    geolocater = nom()
+    
+    city = None
+
+    if any('GPS GPSLongitude' in tag for tag in tags):
+        longlist = list(tags.get('GPS GPSLongitude').values)
+        longitude = longlist[0].num + (longlist[1].num/60) + longlist[2].num/longlist[2].den/3600
+        if tags.get('GPS GPSLongitudeRef').values[0] == "W":
+            longitude = longitude * -1
+
+        latlist = list(tags.get('GPS GPSLatitude').values)
+        latitude = latlist[0].num + (latlist[1].num/60) + latlist[2].num/latlist[2].den/3600
+        if tags.get('GPS GPSLatitudeRef').values[0] == "S":
+            latitude = latitude * -1
+
+        location = geolocater.reverse([latitude, longitude], language='en')
+        city = location.raw.get('address').get('city')
+
+    f.close()
+
+    photo.photo_city = city
+    photo.photo_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
+
     photo.save()
 
     return JsonResponse({'success':'Added photo {} to album {}'.format(photo.pk, album_id)})
