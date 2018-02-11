@@ -109,7 +109,7 @@ def add_to_dict(ref_dict, query):
         ref_dict[query_id].append(query_value)
     elif query_id == 'photo_time_start' or query_id == 'photo_time_end':
         time_split = query_value.split(":")
-        ref_dict[query_id] = time(time_split[0], time_split[1])
+        ref_dict[query_id] = time(int(time_split[0]), int(time_split[1]))
     else:
         query_value = query_value.replace("%20", " ")  # Replace url spaces with true spaces
         ref_dict[query_id] = query_value
@@ -151,6 +151,7 @@ def create_album_json(query_album_set):
                 'photos': [
                     {
                         'photo_time': photo.photo_time,
+                        'photo_date': photo.photo_date,
                         'photo_location': photo.photo_location,
                         'photo_album': photo.photo_album.album_title,
                         'photo_path': photo.photo_path,
@@ -170,7 +171,7 @@ def create_photo_json(query_photo_set):
                 'photo_time': photo.photo_time,
                 'photo_location': photo.photo_location,
                 'photo_album': photo.photo_album.album_title,
-                'photo_path': photo.photo_album.photo_path,
+                'photo_path': photo.photo_path,
             }
             for photo in list(query_photo_set)
         ]
