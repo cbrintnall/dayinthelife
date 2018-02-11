@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from login.models import UserInfo
 from main.models import Album, Photo
+from pytz import all_timezones
 
 def index(request):
 	context = {}
@@ -15,6 +16,7 @@ def home(request):
 @login_required
 def upload(request):
 	context = {}
+	context['timezones'] = all_timezones
 	return render(request, 'upload.html', context)
 
 @login_required 

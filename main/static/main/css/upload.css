@@ -30,6 +30,8 @@ body {
     letter-spacing: 4px;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #upload-area {

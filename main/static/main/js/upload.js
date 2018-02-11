@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-	//setTitleSize();
-
 	$(window).resize(setTitleSize);
 
 	$('#tags-form').tagEditor({
@@ -10,29 +8,21 @@ $(document).ready(function() {
 		clickDelete: true,
 	});
 
-	$('#title-form').keyup(function(data) {
-		var font_size = $(this).css('font-size');
-		font_size = font_size.replace('p','');
-		font_size = font_size.replace('x','');
-		font_size = parseInt(font_size)
-
-		var len = $(this).val().length * font_size
-	});
-
 	runPage()
 
 	$('#upload-button').click(function() {
 		
-		var title = $('#title-form').val()
-		var tags = $('#tags-form').val()
-		var description = $('#description-form').val()
+		var title = $('#title-form').val();
+		var tags = $('#tags-form').val();
+		var description = $('#description-form').val();
+		var tz = $('#timezone-form').val();
 
 		$.ajax({
 			url: '/api/album/?tags=' + tags + '&description=' + description + '&title=' + title,
 			type: 'GET',
 			success: function(data) {
 				if (data.success) {
-					uploadPictures(data.success)
+					uploadPictures(data.success, tz)
 				} else {
 
 				}
@@ -42,24 +32,17 @@ $(document).ready(function() {
 	});
 })
 
-function uploadPictures(key) {
+function uploadPictures(key, timezone) {
 	default_concurrent_chunked_uploader.uploadStoredFiles();
 	default_concurrent_chunked_uploader.getUploads().forEach(function(element){
 		$.ajax({
-			url: '/api/photo/' + key + '/?path=/' + element.uuid + '/' + element.originalName,
+			url: '/api/photo/' + key + '/?path=/' + element.uuid + '/' + element.originalName + '&tz=' + timezone,
 			type: 'GET',
 			success: function(data) {
 
 			}
 		})
 	});
-	$.ajax({
-		url: '/api/close_album/' + key + '/',
-		type: 'GET',
-		success: function(data) {
-
-		}
-	})
 }
 
 function setTitleSize() {
@@ -80,4 +63,8 @@ function runPage(){
 
 function getTitle() {
 	return $('#title-form').val()
+}
+
+function addOptionToTimezone(option) {
+	$('#timezone-form').append('<option>' + option + '</option>');
 }

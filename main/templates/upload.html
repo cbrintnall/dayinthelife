@@ -16,8 +16,10 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
   </script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
   <link href="{% static 'main/css/jquery.tag-editor.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src='{% static "main/js/upload.js" %}'></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader-gallery.min.css" rel="stylesheet">
   <link href="/../static/main/css/upload.css" rel="stylesheet">
@@ -102,8 +104,8 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
 
 <div id='upload-area'>
   <section id='title'>
-    <span><span>through the eyes of </span><input class='txt' id='title-form' type='text' placeholder='a taxi driver...' autofocus></span>
-    <span style='font-size: 40px;'><span>everyone can see that: </span><input style='font-size: 40px;' class='txt' id='description-form' type='text' placeholder='they deserve more pay'></span>
+    <span><span>through the eyes of </span><input class='txt' id='title-form' type='text' placeholder='a farmer..' autofocus></span>
+    <span style='font-size: 40px;'><span>the world can see that: </span><input style='font-size: 40px;' class='txt' id='description-form' type='text' placeholder='they deserve more pay'></span>
     <hr>
   </section>
 
@@ -112,7 +114,9 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
   <section id='description'>
     <span>tags</span><br>
     <input type='text' id='tags-form'>
-    <button  id='upload-button'>Submit</button>
+    <span>timezone</span><br>
+    <select id="timezone-form"></select>
+    <button id='upload-button'>Submit</button>
   </section>
   <script src='{% static "main/js/jquery.tag-editor.min.js" %}'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader.min.js"></script>
@@ -143,6 +147,11 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
         }
       }
     });
+
+    /* Create options menu */
+    {%for tz in timezones%}
+      addOptionToTimezone('{{tz}}')
+    {%endfor%}
   </script>
 </div>
 
