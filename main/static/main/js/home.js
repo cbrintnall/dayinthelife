@@ -56,3 +56,16 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+$('#logout-form').submit(function() {
+    $.ajax({
+        url: this.attr('action'),
+        type: this.attr('method'),
+        data: this.serialize(),
+        success: function(data) {
+            window.location = '/';
+            return false;
+        }
+    });
+    return false;
+});

@@ -31,11 +31,20 @@
                 <img class="gridimg wide" src="{% static "Cambridge/computer.jpg" %}">
         </div>
 
-        <div id="outter">
-                <div id="left"><form action='/auth/login/'><button type="submit">Login</button></form></div>
-                <div id="left"><form action='/upload/'><button type="submit">Upload</button></form></div>
-                <div id="left"><form action='/auth/register/'><button type="submit">Register</button></form></div>
-        </div>
+        {% if user.is_authenticated %}
+            <div id="outter">
+                    <div id="left"><form id='logout-form' action='/auth/api/logout/' method='GET'>
+                        <button type="submit">Logout</button></form></div>
+                    <div id="left"><form action='/upload/'><button type="submit">Upload</button></form></div>
+                    <div id="left"><form action='/auth/register/'><button type="submit">Profile</button></form></div>
+            </div>
+        {% else %}
+            <div id="outter">
+                    <div id="left"><form action='/auth/login/'><button type="submit">Login</button></form></div>
+                    <div id="left"><form action='/upload/'><button type="submit">Upload</button></form></div>
+                    <div id="left"><form action='/auth/register/'><button type="submit">Register</button></form></div>
+            </div>
+        {% endif %}
     </div>
 
     <div id="album-view" class="modal">
@@ -44,7 +53,7 @@
             <p>Some text in the Modal..</p>
         </div>
     </div>
-    
+
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
