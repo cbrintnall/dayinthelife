@@ -116,6 +116,10 @@ function process_photos(data){
     }
 }
 
+$(document).on('click', '.image', function() {
+    window.location = '/album/' + $(this).attr('id') + '/'
+});
+
 $('#logout-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'),

@@ -141,3 +141,11 @@ div.noUi-value.noUi-value-horizontal.noUi-value-large {
     cursor: pointer;
 }
 
+.image {
+    z-index: 999999;
+}
+
+.image:hover {
+    cursor: pointer;
+}
+
