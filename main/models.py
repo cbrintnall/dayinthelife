@@ -38,6 +38,7 @@ class Photo(models.Model):
     """
     photo_date = models.DateField(auto_now=True)
     photo_time = models.TimeField(auto_now=True)
+    photo_utc_time = models.TimeField()
     photo_location = models.CharField(blank=True, max_length=128, null=True)
     photo_path = models.CharField(max_length=256,null=True)
     photo_album = models.ForeignKey(
