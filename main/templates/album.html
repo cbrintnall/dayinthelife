@@ -16,21 +16,24 @@
 	</head>
 	<body>
 		<div id='content'>
-			<section id='info'>
-				<span id='title'>With the help of {{album.album_owner.first_name}},<br> we can see through the eyes of {{album.album_title}}</span>
+			<div class="title">
+				<h1>through the eyes of {{album.album_title}}</h1>
+				<hr>
+			</div>
 
-				<br>
 
-				<span id='description'>They're hoping this helps us see: {{album.album_description}}</span>
-			</section>
+			<div class="description">
+				{{album.album_description}}
+			</div>
 			<hr/>
 			<section id='pictures'>
-				<div id='container'>
+				<div class='grid' id='container'>
 					<img id='current_image' src=''>
 				</div>
+				<button class="arrow_button_1" id='up'>&#8249;</button>
+				<br>
+				<button class="arrow_button_2" id='down'>&#8250;</button>
 			</section>
-			<button id='up'>Right</button>
-			<button id='down'>Left</button>
 		</div>
 		<script src='{% static "main/js/album.js" %}'> </script>
 		<script>
