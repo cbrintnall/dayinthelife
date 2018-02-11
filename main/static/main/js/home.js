@@ -30,9 +30,30 @@ $('.noUi-value.noUi-value-horizontal.noUi-value-large').each(function() {
     $(this).html(val);
 });
 
-$(".noUi-tooltip").click(function(){
-    $(".noUi-tooltip").animate({left: '260px'});
+/*
+$("div.noUi-handle.noUi-handle-lower").noUi-state-drag(function(){
+    console.log("Dragging...");
+    var L = $("div.noUi-handle.noUi-handle-lower").offset();
+    var R = $("div.noUi-handle.noUi-handle-upper").offset();
+    var mid = L.left + (L.left + R.left) / 2;
+    $("#line").css({
+        'position' : 'absolute',
+        'left': mid,
+        'top': R.top
+    });
 });
+*/
+slider.noUiSlider.on('slide', function(){
+    var L = $("div.noUi-handle.noUi-handle-lower").offset();
+    var R = $("div.noUi-handle.noUi-handle-upper").offset();
+    var mid = L.left + ((R.left - L.left) / 2) + 16;
+    $("#line").css({
+        'position' : 'absolute',
+        'left': mid,
+        'top': R.top + 10
+    });
+});
+
 
 function recountVal(val){
     switch(val){

@@ -9,20 +9,23 @@ body {
     margin: 0 auto;
 }
 
-/*
+#line {
+    border-left: 2px solid green;
+    height: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 div.noUi-tooltip {
-    transition: opacity 1s ease-out;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
+    display: none;
 }
 
 div.noUi-active div.noUi-tooltip {
-    opacity: 1;
-    height: auto;
+    display: block
 }
-*/
 
 div.noUi-value.noUi-value-horizontal.noUi-value-large {
     padding-top: 5px;
 }
+
