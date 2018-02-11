@@ -48,6 +48,17 @@ slider.noUiSlider.on('change', function(data){
     prepareData();
 });
 
+$(document).on('mouseover', '.image', function() {
+    var id = $(this).attr("id");
+    $.ajax({
+        url: '/api/public/?album_id=' + id,
+        type: "GET",
+        success: function(data) {
+            $(".title").html("<h1>through the eyes of " + data.albums[0].album_title + " </h1>");
+        }
+    });
+});
+
 
 function recountVal(val){
     switch(val){
