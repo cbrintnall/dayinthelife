@@ -7,7 +7,7 @@ from django.conf import settings
 import exifread
 from geopy.geocoders import Nominatim as nom
 import os
-from datetime import time, datetime
+from datetime import time, datetime, pytz
 
 def get_photos(request):
     param_dict = generate_param_dict(request.META['QUERY_STRING'])  # Creates a dict from a query string
@@ -151,6 +151,7 @@ def create_album_json(query_album_set):
                 'photos': [
                     {
                         'photo_time': photo.photo_time,
+                        'photo_utc_time': photo.photo_utc_time,
                         'photo_date': photo.photo_date,
                         'photo_location': photo.photo_location,
                         'photo_album': photo.photo_album.album_title,
@@ -170,6 +171,7 @@ def create_photo_json(query_photo_set):
         'photos': [
             {
                 'photo_time': photo.photo_time,
+                'photo_utc_time': photo.photo_utc_time,
                 'photo_location': photo.photo_location,
                 'photo_album': photo.photo_album.album_title,
                 'photo_album_id': photo.photo_album.pk,
@@ -230,7 +232,8 @@ def add_photo(request, album_id):
         date_time = datetime.strptime(str(time), '%Y:%m:%d %H:%M:%S')
         photo.photo_time = date_time.time()
         photo.photo_date = date_time.date()
-        
+        photo.photo_utc_time = date_time.time().astimezone(pytz.utc)
+
     geolocater = nom()
     
     city = None
