@@ -34,7 +34,7 @@
         {% if user.is_authenticated %}
             <div id="outter">
                     <div id="left"><form id='logout-form' action='/auth/api/logout/' method='GET'>
-                        <button type="submit">Logout</button></form></div>
+                        <button type='submit'>Logout</button></form></div>
                     <div id="left"><form action='/upload/'><button type="submit">Upload</button></form></div>
                     <div id="left"><form action='/profile/'><button type="submit">Profile</button></form></div>
             </div>
@@ -50,7 +50,9 @@
     <div id="album-view" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <span id='album-title'>A day in the life of </span>
+            <img id='album-img' src='' />
+            <p id='album-description'> </p>
         </div>
     </div>
 
