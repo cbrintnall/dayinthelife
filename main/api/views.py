@@ -37,7 +37,7 @@ def get_photos(request):
         else:
             q_tag_object = q_tag_object | Q(album_tags__icontains=tag)
     if q_tag_object:
-        query_album_set.filter(q_tag_object)
+        query_album_set = query_album_set.filter(q_tag_object)
 
     # Filter photo requests upon its id, location, and time.
     query_photo_set = Photo.objects
@@ -113,26 +113,32 @@ def add_to_dict(ref_dict, query):
 
 
 def dict_has_album_params(ref_dict):
-    return (
+    if (
         ref_dict['album_title'] or
         ref_dict['album_id'] or
         ref_dict['album_desc'] or
-        ref_dict['album_tag'] or
+        ref_dict['tag'] or
         ref_dict['user']
-    )
+    ):
+        return True
+    else:
+        return False
 
 
 def dict_has_picture_params(ref_dict):
-    return (
+    if (
         ref_dict['photo_id'] or
         ref_dict['photo_location'] or
         ref_dict['photo_time_start'] or
         ref_dict['photo_time_end']
-    )
+    ):
+        return True
+    else:
+        return False
 
 
 def create_album_json(query_album_set):
-    return [{
+    return {
         'albums': [
             {
                 'album_description': album.album_description,
@@ -144,26 +150,28 @@ def create_album_json(query_album_set):
                         'photo_time': photo.photo_time,
                         'photo_location': photo.photo_location,
                         'photo_album': photo.photo_album.album_title,
+                        'photo_path': photo.photo_path,
                     }
                     for photo in album.photo_album.all()
                 ]
             }
             for album in query_album_set
         ]
-    }]
+    }
 
 
 def create_photo_json(query_photo_set):
-    return [{
+    return {
         'photos': [
             {
                 'photo_time': photo.photo_time,
                 'photo_location': photo.photo_location,
                 'photo_album': photo.photo_album.album_title,
+                'photo_path': photo.photo_album.photo_path,
             }
             for photo in list(query_photo_set)
         ]
-    }]
+    }
 
 def create_album(request):
 
