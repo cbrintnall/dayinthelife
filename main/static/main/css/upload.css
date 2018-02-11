@@ -4,24 +4,35 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.title {
+#title {
     color:black;
-    text-align: center;
-    margin: auto;
     width: 65%;
     font-family: 'Lato', sans-serif;
 }
 
-.title h1 {
+#title h1 {
+    left: 0;
     font-size: 50px;
     letter-spacing: 5px;
 }
 
-.login {
-    position: absolute;
+#eyes-of {
+    outline: 0;
+    padding-bottom: 3px;
+    margin-left: 10px;
+    font-size: 50px;
+    border-width: 0px 0px 0px 0px;
+    letter-spacing: 4px;
     font-family: 'Roboto', sans-serif;
-    right: 0;
-    top: 0;
-    padding-right: 10px;
-    padding-top: 10px;
 }
+
+#upload-area {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+

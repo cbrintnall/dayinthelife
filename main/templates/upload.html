@@ -5,14 +5,21 @@ Then you can use this html as an example.
 If you are lazy, don't worry, we have a example project:
 https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
 -->
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+  <script src='{% static "main/js/upload.js" %}'></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader-gallery.min.css" rel="stylesheet">
   <link href="/../static/main/css/upload.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
   <script type="text/template" id="qq-template">
     <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
       <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
@@ -89,17 +96,14 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
       </dialog>
     </div>
   </script>
-  <title>Django Fine Uploader</title>
+  <title>Upload</title>
 </head>
 <body>
 
-    <div class="title">
-        <h1>through the eyes of</h1>
-        <hr>
-    </div>
-    <div class="login">
-        login | signup
-    </div>
+<div id='upload-area'>
+  <section id='title'>
+    <h1>through the eyes of</h1>
+  </section>
 
   <div id="default-concurrent-chunked-uploader"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader.min.js"></script>
@@ -126,5 +130,7 @@ https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
       }
     });
   </script>
+</div>
+
 </body>
 </html>

@@ -122,8 +122,3 @@ def add_to_dict(ref_dict, query):
     else:
         query_value = query_value.replace("%20", " ")  # Replace url spaces with true spaces
         ref_dict[query_id] = query_value
-
-@csrf_exempt
-def upload(request):
-    print(request.POST.keys())
-    return JsonResponse({'details':'hello'})
