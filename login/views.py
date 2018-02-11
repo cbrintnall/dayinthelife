@@ -6,4 +6,5 @@ def login(request):
 
 def register(request):
 	context = {}
+
 	return render(request, 'register.html', context)
