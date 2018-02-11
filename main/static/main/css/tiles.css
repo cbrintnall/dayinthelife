@@ -1,13 +1,15 @@
 * { box-sizing: border-box; }
 
 /* inherit height from window */
-html, body { height: 100%; }
+html, body { height: 99%; }
 
 body { font-family: sans-serif; }
 
 /* ---- grid ---- */
 
 .grid {
+  background: rgb(100, 100, 100);
+ 
   margin-top: 50;
   margin-bottom: 0;
   margin-left: auto;
@@ -17,6 +19,7 @@ body { font-family: sans-serif; }
 }
 
 .gridimg {
+    border: black;
     float: left;
     width: 19%;
     height: 30%;

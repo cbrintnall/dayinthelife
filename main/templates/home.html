@@ -15,8 +15,6 @@
 
 <body>
     <div class="container">
-        <h1 id="title">through the eyes of [name_here]</h1>
-
         <div id="slider" style="width: 90%"></div>
         
         <div class="grid">
@@ -32,16 +30,14 @@
                 <img class="gridimg wide" src="{% static "Cambridge/computer.jpg" %}">
         </div>
 
-        <div id="lifestyle-div"><button>Lock Lifestyle</button></div>
+        <h2 id="lifestyle">through the eyes of [name_here]</h2>
 
+        <div id="outter">
+                <div id="left"><form action='/auth/login/'><button type="submit">Login</button></form></div>
+                <div id="left"><form action='/upload/'><button type="submit">Upload</button></form></div>
+                <div id="left"><form action='/auth/register/'><button type="submit">Register</button></form></div>
+        </div>
     </div>
-
-    <ul id="redirects">
-        <li><form action='/auth/login/'><button type="submit">Login</button></form></li>
-        <li><form action='/auth/register/'><button type="submit">Register</button></form></li>
-        <li><form action='/upload/'><button type="submit">Upload</button></form></li>
-    </ul>
-
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -1,25 +1,31 @@
+
 html {
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #d48122 0%,#e02323 100%);
     font-family: 'Roboto', sans-serif;
+    background: 
+    -webkit-radial-gradient(0% 100%, ellipse cover, rgba(216,180,93,.4) 10%,rgba(221,93,50,0) 40%), /* Sun from bottom left*/
+    -webkit-linear-gradient(top,  rgba(221,93,50,.25) 0%,rgba(212,64,37,.4) 100%), /* top down */
+    -webkit-linear-gradient(-45deg,  #d8b45d 0%,#d44025 100%); /* TopLeft To BottomRight */
 }
+
 
 body {
     color: white;
 }
 
-h1 {
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 20px;
-}
-
-/* #d48122 0%,#e02323 */
 button {
     background-color: #d42405;
     border: none;
     color: white;
     transition-duration: 0.4s;
     border-radius: 4px;
+    width: 100%;
+    margin: auto;
+    height: 25px;
+}
+
+form {
+    margin: auto;
+    width: 100%;
 }
 
 button:hover {
@@ -30,8 +36,22 @@ button:hover {
     transition: background-position 0.1s linear;
 }
 
-#title {
+#outter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#left {
+    width: 30%;
     margin: auto;
+    float:left;
+    height: 25px;
 }
 
 .container {
@@ -39,37 +59,21 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-}
-
-#redirects {
-    list-style: none;   
-    position: absolute;
-    bottom: 0;
-    width: 20%;
-}
-
-#redirects li form {
-    margin: 0 0 0 0;
-    width: 100%;
-}
-
-#redirects button {
-    margin: 0 0 3px 0;
-    width: 100%;
-}
-
-#lifestyle-div {
-    margin: auto;
-    height: 20px;
-}
-
-#lifestyle-div button {
-    margin: auto;
-    height: 20px;
+    margin-bottom: auto;
 }
 
 #slider {
-    margin: auto;
+    margin-top: 35px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#lifestyle {
+    margin-top: 10;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10;
 }
 
 div.noUi-tooltip {
