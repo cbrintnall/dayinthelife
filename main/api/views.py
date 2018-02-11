@@ -162,6 +162,15 @@ def add_photo(request, album_id):
     photo = Photo.objects.create(photo_location=path, photo_album=parent_album)
     photo.save()
 
-    print("Added {}".format(photo.photo_location))
-
     return JsonResponse({'success':'Added photo {} to album {}'.format(photo.pk, album_id)})
+
+def close_album(request, album_id):
+
+    if Album.objects.filter(pk=album_id).exists():
+        album = Album.objects.get(pk=album_id)
+        album.closed = True
+        album.save()
+    else:
+        return JsonResponse({'failed':"Couldn't find album {}".format(album_id)})
+
+    return JsonResponse({'success':'Closed album {}'.format(album_id)})
