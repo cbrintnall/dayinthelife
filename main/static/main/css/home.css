@@ -22,15 +22,19 @@ h1 {
 
 #redirects {
     list-style: none;   
+    position: absolute;
+    bottom: 0;
+    width: 20%;
 }
 
 #redirects li form {
     margin: 0 0 0 0;
+    width: 20%;
 }
 
 #redirects button {
     margin: 0 0 3px 0;
-    width: 10%;
+    width: 20%;
 }
 
 #slider {
@@ -63,5 +67,6 @@ div.noUi-active div.noUi-tooltip {
 
 div.noUi-value.noUi-value-horizontal.noUi-value-large {
     padding-top: 5px;
+    color:white;
 }
 

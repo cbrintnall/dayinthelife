@@ -3,9 +3,12 @@ var slider = document.getElementById('slider');
 var now = new Date();
 var time_start = (now.getHours() - 1) * 60;
 var time_end = (now.getHours() + 1) * 60;
-if (time_end > 1440) {
+
+console.log(time_start);
+console.log(time_end);
+if (time_start < 0) {
     time_start = 0;
-    time_end = 60
+    time_end = 60 * 2;
 }
 
 slider.margin = '20 auto 30px';
