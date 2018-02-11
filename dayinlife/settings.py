@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'brintnc.com', '159.89.158.238']
 
+LOGIN_REDIRECT_URL = '/auth/login/'
+LOGIN_URL = '/auth/login/'
 
 # Application definition
 
