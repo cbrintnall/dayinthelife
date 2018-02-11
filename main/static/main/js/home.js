@@ -40,3 +40,19 @@ function recountVal(val){
         case 1440: return '12:00 AM'; break;
     }
 }
+
+var modal = document.getElementById('album-view');
+var span = document.getElementsByClassName("close")[0];
+$('.gridimg').click(function() {
+    modal.style.display = "block";
+});
+
+span.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
