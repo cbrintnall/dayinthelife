@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from datetime import time
 
 """
     Models for ThroughTheEyeOf Website
@@ -35,7 +36,8 @@ class Photo(models.Model):
         * photo_album - Foreign Key Reference to the Album Model 
             that 'owns' the photo
     """
-    photo_time = models.DateTimeField(auto_now=True)
+    photo_date = models.DateField(auto_now=True)
+    photo_time = models.TimeField(auto_now=True)
     photo_location = models.CharField(blank=True, max_length=128, null=True)
     photo_path = models.CharField(max_length=256)
     photo_album = models.ForeignKey(
